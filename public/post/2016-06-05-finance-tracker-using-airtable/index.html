@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+
+    <head>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="">
+        <meta name="keywords" content="awesome, definitely">
+	
+        <meta property="og:site_name" content="Fabio Berger">
+        <meta property="og:title" content="Fabio Berger">
+        <meta property="og:url" content="http://fabioberger.com/post/2016-06-05-finance-tracker-using-airtable/">
+        <meta property="og:description" content="Lessons learned and giving back">
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:author" content="" />
+        <meta property="og:article:published_time" content="2016-06-05T23:20:10-07:00" />
+    
+        <meta name="generator" content="Hugo 0.15" />
+        <title>Track Your Crypto &amp; Fiat Finances with Airtable &middot; Fabio Berger </title>
+        <link rel="canonical" href="http://fabioberger.com/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+        <link rel="stylesheet" type='text/css' href="http://fabioberger.com/css/main.css"/>
+        <link rel="shortcut icon" href="http://fabioberger.com/imgs/favicon.ico">
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300|Montserrat:700' rel='stylesheet' type='text/css'>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    </head>
+
+<body>
+<!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p><![endif]-->
+
+    <header id="site-header">
+        <div class="container">
+            <a href="http://fabioberger.com/" alt="Fabio Berger"><h1 class="blog-title heading">Fabio Berger</h1></a>
+            <p class="blog-description">Lessons learned and giving back</p>
+        </div>
+    </header>
+<main class="content" role="main">
+	<div class="container">
+		<article class="post">
+	<header class="post-header">
+        <h3 class="p-post-title">Track Your Crypto &amp; Fiat Finances with Airtable</h3>
+    </header>
+
+    <section class="post-content">
+        
+
+<p>Since I started owning crypto-currencies, I&rsquo;ve had a harder and harder time keeping track of my finances. With my modest fortune spread between multiple bank accounts, ether and bitcoin addresses, I needed a better way to know my total net worth and how each of my assets was performing. I decided to use <a href="https://airtable.com">Airtable</a> and it&rsquo;s extensive API to build a single place where I could do just that.</p>
+
+<p>In this post I will show you how you too can use Airtable and a <a href="https://github.com/fabioberger/finance_tracker">simple web server</a> to keep track of your finances. It will update your bank balances, pull in the latest crypto and fiat currency exchange prices in order to give you up-to-the-minute profit &amp; loss calculations, total net worth, and where you lie on the crypto/fiat split. I will walk you through customizing the <a href="https://airtable.com/shrA09QDhlYHBPMB3">Finance Tracker</a> Airtable Base I&rsquo;ve made, and how to set up the server that keeps it up to date.</p>
+
+<p><img src="/imgs/finance_tracker_assets_screenshot.png" alt="Finance Tracker Screenshot" /></p>
+
+<p>The Finance Tracker base is made up of two tables. The &ldquo;Assets&rdquo; table has a record for each of your assets, be they a bank balance or a crypto-currency you keep in an address. The second table keeps track of the &ldquo;Currencies&rdquo; (both crypto and fiat) and their relative exchange prices in USD.</p>
+
+<p><img src="/imgs/finance_tracker_currencies_screenshot.png" alt="Finance Tracker Screenshot 2" /></p>
+
+<p>The simple web server will update the currency exchanges you care about in the &ldquo;Currencies&rdquo; table, and these changes will update the linked &ldquo;Current Price&rdquo; field in the &ldquo;Assets&rdquo; table, updating the calculations of the USD value of your assets given the new exchange rates. In addition to this, it will also update your bank balances directly in the &ldquo;Assets&rdquo; table by updating the &ldquo;Amount&rdquo; field for specific records.</p>
+
+<h3 id="getting-started:235c5519861362eeefa2a35b73b78e7a">Getting Started</h3>
+
+<p>In order to get started, you will need to <a href="https://airtable.com/">create an Airtable account</a> and <a href="https://airtable.com/shrA09QDhlYHBPMB3/tblEIN8XHiHPZWY3n/viwlisvgdR8wg4xwM">install the Finance Tracker base</a> onto one of your workspaces. You can do this by clicking the &ldquo;Copy Base&rdquo; button in the top right corner. This will install your very own copy of the &ldquo;Finance Tracker&rdquo; base which you can then customize to your liking.</p>
+
+<p>The &ldquo;Finance Tracker&rdquo; base comes pre-filled with dummy &ldquo;Assets&rdquo;. Each record in this table should represent an asset you own. You can delete all the dummy entries by selecting all the records (cmd-a) and right click on one to see the &ldquo;Delete all selected records&rdquo; option. This will make room for your actual assets, be they crypto or fiat.</p>
+
+<p align="center">
+<img src="/imgs/airtable_delete_all_screenshot.png" alt="Drawing" style="width: 300px;"/>
+</p>
+
+<p>The first thing you should do is populate this table with each of the assets you own, filling in the &ldquo;Funds&rdquo; field with a descriptive name for the asset, the &ldquo;Amount&rdquo; field with the amount of the asset you own and the &ldquo;Currency&rdquo; field with the currency the asset is denominated in. You should also fill in the &ldquo;Unit Buy Price&rdquo; you paid for the asset (simply $1 if it&rsquo;s a USD bank account).</p>
+
+<p><strong>Pro tip:</strong> If you bought a crypto-currency at multiple times at different prices, you can create a record for each time you bought or mined the currency. This way, you can more accurately track your gains/losses for each subsequent acquisition.</p>
+
+<p>The rest of the fields in this table will be auto-calculated for you based on the other field values and the currency exchange rates in the &ldquo;Currencies&rdquo; table. This is because they are <a href="https://support.airtable.com/hc/en-us/articles/202576519-Guide-to-formula-lookup-count-and-rollup-fields">formula fields</a> that take as input the values in other fields. For example, the &ldquo;Gain/Loss&rdquo; field is simply the &ldquo;Current Value&rdquo; field minus the &ldquo;Total Buy Price&rdquo;.</p>
+
+<p align="center">
+<img src="/imgs/airtable_formula_screenshot.png" alt="Drawing" style="width: 300px;"/>
+</p>
+
+<p><strong>Pro tip:</strong> You can inspect and edit each formula by double clicking the field name and opening up the field configuration menu.</p>
+
+<p>Another Airtable feature we use is the summary bar at the bottom of the base. This allows us to see aggregate stats about a particular column. For example, to see your total net worth, you can look at the summation at the bottom of the &ldquo;Current Value&rdquo; field:</p>
+
+<p align="center">
+<img src="/imgs/airtable_summary_bar_screenshot.png" alt="Drawing" style="width: 100px;"/>
+</p>
+
+<p>The same goes for the &ldquo;Crypto&rdquo; and &ldquo;Personal&rdquo; columns which tell you the total of your net worth that is in crypto assets and fiat assets.</p>
+
+<h3 id="setting-up-the-server:235c5519861362eeefa2a35b73b78e7a">Setting up the server</h3>
+
+<p>Now that you&rsquo;ve listed all of your assets, it&rsquo;s time to clone and install the server that&rsquo;s going to update the currency exchange rates you care about and update your bank balances whenever you want. To do this, go ahead and clone the <a href="https://github.com/fabioberger/finance_tracker">finance_tracker project on Github</a> and follow the detailed README instructions on how to customize which currencies you&rsquo;d like updated (both crypto and fiat) as well as how to pull in your bank account balances into Airtable.</p>
+
+<p>I&rsquo;ll be waiting here until you&rsquo;ve successfully gotten your little server running.</p>
+
+<p>Ok great! You&rsquo;ve now successfully customized your Airtable Finance Tracker base and can keep it up to date with a server running locally on your computer! The cool thing about keeping track of your finances in this way is that Airtable is infintely flexible. If there is an additional statistic or key metric you want to keep track of, you can easily add a formula field and calculate it right away! If you suddenly buy a new crypto-asset or open a bank account abroad, you can just add them to the assets table and start tracking them as well.</p>
+
+<p>I hope you found this tutorial helpful and that it helps you stay on top of your finances!</p>
+
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            
+            
+            <p class="f-post-time"><time datetime="2016-06-05T23:20:10-07:00">June 5, 2016</time></p>
+        </section>
+                        
+        <section class="f-2">
+            <section class="share">
+                <span>Share:
+                <a class="icon-twitter" href="http://twitter.com/share?text=Track%20Your%20Crypto%20%26%20Fiat%20Finances%20with%20Airtable&url=http%3a%2f%2ffabioberger.com%2fpost%2f2016-06-05-finance-tracker-using-airtable%2f"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2ffabioberger.com%2fpost%2f2016-06-05-finance-tracker-using-airtable%2f"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2ffabioberger.com%2fpost%2f2016-06-05-finance-tracker-using-airtable%2f"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                </span>
+            </section>
+
+            
+        </section>
+                        
+    </footer>
+</article>
+	</div>
+</main>
+    <footer id="site-footer">
+        <div class="container">
+            <a href="http://fabioberger.com/index.xml" title="Get the RSS feed"><span class="tooltip"><i class="fa fa-rss"></i></span></a>
+            <section>&copy; <a href="http://fabioberger.com/"></a> 2015 | All rights reserved</section>
+            <section>Theme by <a href="http://www.jrdnbwmn.com">Jordan Bowman</a>. Generated with <a href="http://gohugo.io/">Hugo</a>.</section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://fabioberger.com/js/fittext.js"></script>
+    <script type="text/javascript">
+      $(".heading").fitText();
+    </script>
+
+
+</body>
+</html>

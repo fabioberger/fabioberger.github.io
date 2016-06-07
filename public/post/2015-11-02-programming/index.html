@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+
+    <head>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="">
+        <meta name="keywords" content="awesome, definitely">
+	
+        <meta property="og:site_name" content="Fabio Berger">
+        <meta property="og:title" content="Fabio Berger">
+        <meta property="og:url" content="http://fabioberger.com/post/2015-11-02-programming/">
+        <meta property="og:description" content="Lessons learned and giving back">
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:author" content="" />
+        <meta property="og:article:published_time" content="2015-11-02T23:20:10-07:00" />
+    
+        <meta name="generator" content="Hugo 0.15" />
+        <title>Intro to Programming &middot; Fabio Berger </title>
+        <link rel="canonical" href="http://fabioberger.com/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+        <link rel="stylesheet" type='text/css' href="http://fabioberger.com/css/main.css"/>
+        <link rel="shortcut icon" href="http://fabioberger.com/imgs/favicon.ico">
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300|Montserrat:700' rel='stylesheet' type='text/css'>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    </head>
+
+<body>
+<!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p><![endif]-->
+
+    <header id="site-header">
+        <div class="container">
+            <a href="http://fabioberger.com/" alt="Fabio Berger"><h1 class="blog-title heading">Fabio Berger</h1></a>
+            <p class="blog-description">Lessons learned and giving back</p>
+        </div>
+    </header>
+<main class="content" role="main">
+	<div class="container">
+		<article class="post">
+	<header class="post-header">
+        <h3 class="p-post-title">Intro to Programming</h3>
+    </header>
+
+    <section class="post-content">
+        
+
+<h3 id="introduction:3273e9d6762e4c2ede6e5a3fb8ab368a">Introduction</h3>
+
+<p>Welcome to the wonderful world of programming. In this intro guide, I want to help you get up to speed with some of the fundamentals of what &lsquo;programming&rsquo; actually means and how you can get started with learning this very powerful tool. Computers can empower you to build systems that work while you sleep, send information around the globe in milliseconds and calculate really complex equations in the blink of an eye. Let&rsquo;s get you some of these magic powers so that you can apply them to solve the problems you care about.</p>
+
+<h3 id="everything-is-a-file:3273e9d6762e4c2ede6e5a3fb8ab368a">Everything is a file</h3>
+
+<p>Computers are simply a collection of files. Some files, such as Microsoft Word files, contain the words we humans write. They also contain the instructions on how to display those words on the screen. What to <code>bold</code>, <code>underline</code> and what to make size font <code>24</code> and what size font <code>28</code>. Similarly, every computer program is written in files, using characters found on your keyboard. Look down at your keyboard now. Do you see all those weird keys on the perimeter of your keyboard that you hardly use? (i.e <code>#, %, &amp;, *, [, ], |</code>) Lots of those are used when writing computer programs and have been assigned specific meanings in computer languages. For example, the character <code>!</code> has been assigned the mathematical operation of negation. If I were to write: <code>isSheGerman = !true</code> that would mean the same as <code>isSheGerman = false</code>. Not true is false. But we are getting a little carried away here, what is important to realize is that computer programs are not written as 1001101001000101011 by programers but rather are written in english looking words into files. You can then tell the computer to run the file and execute the instructions within them.</p>
+
+<h3 id="a-program-is-a-fancy-word-for-recipe:3273e9d6762e4c2ede6e5a3fb8ab368a">A <code>program</code> is a fancy word for <code>recipe</code></h3>
+
+<p>Every program is simply a set of instructions that the computer reads from top to bottom. They are simply a recipe of what to do and when to do it. Let&rsquo;s write out a simple recipe for making bread and then see what the equivalent computer program would look like:</p>
+
+<h4 id="recipe:3273e9d6762e4c2ede6e5a3fb8ab368a">Recipe</h4>
+
+<pre><code>- Get a large bowl
+- Add yeast and warm water to the bowl
+-  Add 3 tablespoons of sugar
+-  Add 1 tablespoon of salt
+-  Add 2 tablespoons canola oil and 3 cups flour
+-  Beat 30 times
+-  knead until smooth and elastic
+-  Cover and let rise for 1 and a 1/2 hours
+-  Bake at 375° until golden brown
+</code></pre>
+
+<h4 id="program:3273e9d6762e4c2ede6e5a3fb8ab368a">Program</h4>
+
+<pre><code class="language-javascript">var largeBowl = [];
+largeBowl.push(yeast);
+largeBowl.push(1TablespoonSugar * 3);
+largeBowl.push(1TablespoonSalt);
+largeBowl.push(1TablespoonCanolaOil * 2);
+largeBowl.push(1CupFlour * 3);
+for (ingredient of largeBowl) {
+	beat(ingredient);
+}
+while(!isWellKneaded AND !isElastic) {
+	knead(largeBowl);
+}
+setTimeout(bakeAt375DegreesUntilBrown(largeBowl), OneAndAHalfHours);
+</code></pre>
+
+<p>This is what you are writing when you are <code>programming</code>. Just like a human following a recipe, the computer will read these instructions written in a <code>language</code> it understands and will follow each instruction sequentially. This example is in javascript, which most websites are written in, but a lot of the concepts you learn in one language are the same in every other language.</p>
+
+<h3 id="3-basic-concepts-found-in-all-programming-languages:3273e9d6762e4c2ede6e5a3fb8ab368a">3 Basic Concepts Found In All Programming Languages</h3>
+
+<p>Although there are many programming languages: <code>python, javascript, golang, ruby, C++, java, objective-c, etc...</code>, all of them have the following basic building blocks to express the instructions we humans care about. Here are some of the main concepts you will be learning about and why they are important:</p>
+
+<h4 id="variables:3273e9d6762e4c2ede6e5a3fb8ab368a">Variables</h4>
+
+<p>Just like in math, sometimes it can make life easier to give a name to values instead of simply re-writing the number everywhere. In math you might say:</p>
+
+<pre><code>x = 10
+y = 5
+z = 2*x + y
+</code></pre>
+
+<p>Therefore the value of z is 25. Similarly, you can assign <code>values</code> to <code>variables</code> in programming. A value can be a number, but it can also be text or a collection. Here are some examples:</p>
+
+<pre><code class="language-javascript">var x = 10;
+var y = 5;
+var z = 2*x + y;
+</code></pre>
+
+<p>z is equal to 25!</p>
+
+<pre><code class="language-javascript">var firstName = 'Fabio';
+var lastName = 'Berger';
+var fullName = firstName + ' ' + lastName;
+</code></pre>
+
+<p>fullName is equal to &lsquo;Fabio Berger&rsquo;.</p>
+
+<pre><code class="language-javascript">var pets = [cat, dog];
+pets.push(parrot);
+</code></pre>
+
+<p>pets is equal to [cat, dog, parrot].</p>
+
+<p>In programming, the <code>=</code> sign does not mean equality in the mathematical sense, but rather <code>assignment</code>, let us set the value of the name on the left to the value on the right. Variables are important because they let us give more descriptive names to the data we are processing and can make our recipes more readable.</p>
+
+<h4 id="if-statements:3273e9d6762e4c2ede6e5a3fb8ab368a">If Statements</h4>
+
+<p>An <code>if statement</code> is a conditional statement. Sometimes just like in a human recipe, you want to do something IF something else has happened. For example:</p>
+
+<pre><code class="language-javascript">if(ovenIsAt360Degrees) {
+	putBreadIntoOven();
+} else {
+	wait30MinutesAndTryToPutBreadInOvenAgain();
+}
+</code></pre>
+
+<p>When the computer needs to decide whether to put the bread into the oven, we can tell it to only do so IF the oven is already pre-heated to 360 degrees celsius. Therefore <code>if statements</code> let us have divergent paths of instructions for the computer.</p>
+
+<h4 id="loops:3273e9d6762e4c2ede6e5a3fb8ab368a">Loops</h4>
+
+<p>Sometimes you want to do something to every item within a collection. Let&rsquo;s say you have 6 guests at a party, we want to give each one a drink and then sit them down. To do this, we can use a <code>for loop</code>:</p>
+
+<pre><code class="language-javascript">var guests = [fabio, john, marlene, soroush, alex, stephanie];
+for (guest of guests) {
+	giveADrinkTo(guest);
+	sitGuestDown(guest);
+}
+</code></pre>
+
+<p>This means, for every guest in the collection of guests, give them a drink and then sit them down. The instructions between the curly braces will be executed once for each guest at the party. Each will be given a drink and then sat down. This lets you write the instructions only once even though you want them performed for however many guests show up to your party.</p>
+
+<h3 id="conclusion-to-introduction:3273e9d6762e4c2ede6e5a3fb8ab368a">Conclusion to Introduction</h3>
+
+<p>I hope this very short introduction has given you the sense that when you pop open the hood of your computer and get a glimpse of how they work, that some of the mystery that surrounds them disappears. Programming is an exercise that requires wit, problem solving and creativity. It also requires a lot of patience and a tolerance for making mistakes. The reward however is mastering a tool that can be used in every single field of human endeavor. Stay tuned for more tidbit lessons and check out some of these more comprehensive online resources to continue your journey into the world of programming! ;)</p>
+
+<p>*Last piece of advice: When you start learning about programming, many things will not make sense the first time you see/read them. Don&rsquo;t get discouraged, just keep reading, even if you don&rsquo;t understand and somehow you brain will eventually start to make sense of it!</p>
+
+<ul>
+<li><a href="https://pine.fm/LearnToProgram/">https://pine.fm/LearnToProgram/</a></li>
+<li><a href="https://www.codecademy.com/">https://www.codecademy.com/</a></li>
+<li><a href="https://www.khanacademy.org/computing/computer-programming/programming">https://www.khanacademy.org/computing/computer-programming/programming</a></li>
+</ul>
+
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            
+            
+            <p class="f-post-time"><time datetime="2015-11-02T23:20:10-07:00">November 2, 2015</time></p>
+        </section>
+                        
+        <section class="f-2">
+            <section class="share">
+                <span>Share:
+                <a class="icon-twitter" href="http://twitter.com/share?text=Intro%20to%20Programming&url=http%3a%2f%2ffabioberger.com%2fpost%2f2015-11-02-programming%2f"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2ffabioberger.com%2fpost%2f2015-11-02-programming%2f"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2ffabioberger.com%2fpost%2f2015-11-02-programming%2f"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                </span>
+            </section>
+
+            
+        </section>
+                        
+    </footer>
+</article>
+	</div>
+</main>
+    <footer id="site-footer">
+        <div class="container">
+            <a href="http://fabioberger.com/index.xml" title="Get the RSS feed"><span class="tooltip"><i class="fa fa-rss"></i></span></a>
+            <section>&copy; <a href="http://fabioberger.com/"></a> 2015 | All rights reserved</section>
+            <section>Theme by <a href="http://www.jrdnbwmn.com">Jordan Bowman</a>. Generated with <a href="http://gohugo.io/">Hugo</a>.</section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://fabioberger.com/js/fittext.js"></script>
+    <script type="text/javascript">
+      $(".heading").fitText();
+    </script>
+
+
+</body>
+</html>
