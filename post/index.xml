@@ -21,7 +21,7 @@
 
 &lt;p&gt;In this post I will show you how you too can use Airtable and a &lt;a href=&#34;https://github.com/fabioberger/finance_tracker&#34;&gt;simple web server&lt;/a&gt; to keep track of your finances. It will update your bank balances, pull in the latest crypto and fiat currency exchange prices in order to give you up-to-the-minute profit &amp;amp; loss calculations, total net worth, and where you lie on the crypto/fiat split. I will walk you through customizing the &lt;a href=&#34;https://airtable.com/shrA09QDhlYHBPMB3&#34;&gt;Finance Tracker&lt;/a&gt; Airtable Base I&amp;rsquo;ve made, and how to set up the server that keeps it up to date.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://fabioberger.com/imgs/finance_tracker_assets_screenshot.png&#34; alt=&#34;Finance Tracker Screenshot&#34; /&gt;&lt;/p&gt;
+&lt;iframe class=&#34;airtable-embed&#34; src=&#34;https://airtable.com/embed/shrA09QDhlYHBPMB3?backgroundColor=red&#34; frameborder=&#34;0&#34; onmousewheel=&#34;&#34; width=&#34;100%&#34; height=&#34;533&#34; style=&#34;background: transparent; border: 1px solid #ccc;&#34;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;The Finance Tracker base is made up of two tables. The &amp;ldquo;Assets&amp;rdquo; table has a record for each of your assets, be they a bank balance or a crypto-currency you keep in an address. The second table keeps track of the &amp;ldquo;Currencies&amp;rdquo; (both crypto and fiat) and their relative exchange prices in USD.&lt;/p&gt;
 
