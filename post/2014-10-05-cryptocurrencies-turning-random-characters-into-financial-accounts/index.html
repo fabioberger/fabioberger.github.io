@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#"><!--<![endif]-->
+
+    <head>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="author" content="">
+        <meta name="keywords" content="awesome, definitely">
+	
+        <meta property="og:site_name" content="Fabio Berger">
+        <meta property="og:title" content="Fabio Berger">
+        <meta property="og:url" content="http://fabioberger.com/post/2014-10-05-cryptocurrencies-turning-random-characters-into-financial-accounts/">
+        <meta property="og:description" content="Lessons learned and giving back">
+    
+        <meta property="og:type" content="article" />
+        <meta property="og:article:author" content="" />
+        <meta property="og:article:published_time" content="2014-10-01T23:20:10-07:00" />
+    
+        <meta name="generator" content="Hugo 0.15" />
+        <title>Cryptocurrencies: Turning Random Characters Into Financial Accounts &middot; Fabio Berger </title>
+        <link rel="canonical" href="http://fabioberger.com/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+        <link rel="stylesheet" type='text/css' href="http://fabioberger.com/css/main.css"/>
+        <link rel="shortcut icon" href="http://fabioberger.com/imgs/favicon.ico">
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300|Montserrat:700' rel='stylesheet' type='text/css'>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    </head>
+
+<body>
+<!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p><![endif]-->
+
+    <header id="site-header">
+        <div class="container">
+            <a href="http://fabioberger.com/" alt="Fabio Berger"><h1 class="blog-title heading">Fabio Berger</h1></a>
+            <p class="blog-description">Lessons learned and giving back</p>
+        </div>
+    </header>
+<main class="content" role="main">
+	<div class="container">
+		<article class="post">
+	<header class="post-header">
+        <h3 class="p-post-title">Cryptocurrencies: Turning Random Characters Into Financial Accounts</h3>
+    </header>
+
+    <section class="post-content">
+        
+
+<p>For the past month I have been spending lots of my time researching cryptocurrencies, most notably Bitcoin and Stellar. After having read multiple whitepapers, manually generating and executing bitcoin transactions on the blockchain and speaking with many of the thought leaders in the space including: <a href="http://www.coinbase.com/about">Fred Ehrsam</a>, <a href="https://www.stellar.org/about/">Joyce Kim</a> and <a href="http://gendal.wordpress.com/about/">Richard Gendal Brown</a>, I am more convinced then ever before that cryptocurrencies are here to stay and will revolutionize the way our world works. In this post, I want to share with you two of the fundamental realizations that have lead me to this conclusion and also some hurdles that are already slowing down the expansion of cryptocurrencies.</p>
+
+<h4 id="permissionless-financial-participation:144a8235a1080e6d5a60bdd8193a8361">Permissionless Financial Participation</h4>
+
+<p>In the traditional financial system, in order to transfer money without the use of physical cash, you need to open a bank account.  This process can only be done by human beings within commuting distance of a banking institution willing and eager to open accounts. This is something we take for granted in the developed world, however there are over 2.5 billion individuals who do not have this luxury. In contrast to this cumbersome and physical method of joining the financial system, cryptocurrencies allow anyone with access to an internet enabled device to open a financial wallet, from which they can receive and send payments worldwide with near-zero fees. What makes this possible? The fact that cryptocurrency accounts are nothing more then randomly generated strings of letters and numbers that can be uniquely identified.</p>
+
+<p align="center">
+<img src="/imgs/farmer-phone.jpg" style="width: 400px; height: 300px;"/>
+</p>
+
+<p>To make this clearer, lets go ahead and generate a bitcoin address that can store, send and received bitcoins (special thanks to <a href="http://www.righto.com/2014/02/bitcoins-hard-way-using-raw-bitcoin.html">Key Shirriff&rsquo;s blog post on the raw bitcoin protocol</a>). The first step is to literally generate a 256-bit string of letters and numbers which will act as the bitcoin addresses private key (analogous to a password).</p>
+
+<pre><code class="language-python"># Warning: this random function is not cryptographically strong and is just for example
+private_key = ''.join(['%x' % random.randrange(16) for x in range(0, 64)])
+</code></pre>
+
+<p>This will result in a private key that looks like this:</p>
+
+<pre><code class="language-python">private_key = '3f42e34aebc34aff098c901a4ddf658afb29f80d1d158ed2b01fd982fe3aa230'
+</code></pre>
+
+<p>From this private key, we can now generate a public address we can send to whoever we would like to receive funds from. In order to do this, we will use the Elliptic Curve DSA algorithm followed by SHA-256 hashing, RIPEM-160 hashing, and then Base58 encoding with checksum to end up with the public bitcoin address:</p>
+
+<pre><code class="language-python">signing_key = ecdsa.SigningKey.from_string(private_key.decode('hex'), curve=ecdsa.SECP256k1)
+public_key = ('\04' + signing_key.verifying_key.to_string()).encode('hex')
+
+ripemd160 = hashlib.new('ripemd160')
+ripemd160.update(hashlib.sha256(public_key.decode('hex')).digest())
+bitcoin_address = utils.base58CheckEncode(0, ripemd160.digest())
+</code></pre>
+
+<p>With just a few lines of code that could run on even the simplest of computing devices we already have the equivalent of a bank account in this new financial system.</p>
+
+<h4 id="the-alternative-ach-is-a-poorly-designed-closed-system:144a8235a1080e6d5a60bdd8193a8361">The Alternative (ACH) is a Poorly Designed, Closed System</h4>
+
+<p>The more I learned about the way cryptocurrencies work, the more I wanted to compare it to how the existing financial system works. <a href="http://gendal.wordpress.com/">Richard Gendal Brown&rsquo;s blog</a> was very helpful in this regard, as well as <a href="http://engineering.zenpayroll.com/how-ach-works-a-developer-perspective-part-1/">Edward Kim&rsquo;s post</a> on Zen Payroll&rsquo;s blog about how ACH (Automatic Clearing House) payments work from a developers perspective. It turns out ACH was developed in the 1970&rsquo;s and is entirely a file based system which uses secure FTP to transfer debit or credit files detailing transactions between two parties (Yikes!). All one needs to execute such a transaction is the bank account numbers of the two parties. There is no password, or other form of consent to send a charge across ACH.</p>
+
+<p align="center">
+<img src="/imgs/ach.png" style="width: 450px; height: 257px;"/>
+</p>
+
+<p>So how does this encrypted but otherwise credential-less protocol protect against unauthorised charges on accounts within its system? It doesn&rsquo;t! It has merely implemented the equivalent of &ldquo;ctrl-z&rdquo; where any institution in the network can undo a transaction by applying the opposite transaction back to the network on behalf of a complaining customer. The reason this does not happen much more frequently is simply because they limit access to the ACH network to chartered banks who act as Originating Depository Financial Institution&rsquo;s for other companies needing access to the system.</p>
+
+<p>In comparison with ACH, Bitcoin is clearly more secure in that no one in the network can credit your account without access to your private key. With this control returned to the end customer, we can now exist in an open system without gatekeepers to safeguard our accounts. In the future, companies such as Zen Payroll will not have to go through the enormous barrier of having to convince a bank to become their ODFI in order to start accepting business. They could simply join the global payments network that is bitcoin and begin making people&rsquo;s lives easier through exceptional payroll services. This begs the question, how many other financial services companies would exist today if the barrier to joining a payments and settlement network was less cumbersome?</p>
+
+<h4 id="the-hurdle-of-the-narrow-bridge:144a8235a1080e6d5a60bdd8193a8361">The Hurdle of The Narrow Bridge</h4>
+
+<p>Many of the exact reasons why people are getting excited about cryptocurrencies are the very reasons financial regulators are very nervous about their proliferation. The existing financial system has evolved within a walled garden of sorts where the government has tremendous power and oversight into financial institutions and their regulation. Although cryptocurrencies are not illegal, any US business dealing in their transmission must register with FinCen (The Financial Crimes Enforcement Network), comply with AML (Anti-money Laundering Laws) and KYC (Know Your Customer practices). In addition to this, they also need to register for a MTL (Money Transmitter License) in 48 states, each with different requirements and governing bodies. This is an absurd amount of regulation which will impede all but the most well funded of startups.</p>
+
+<p>If you do get through these hurdles, finding a bank willing to do business with you will be your next challenge. Bank have received a stern warning from FinCen that if they do accept cryptocurrency business, they will need to brace for stricter audits. This has made many banks unwilling to take on these types of businesses, and those who do (Silicon Valley Bank) are being very selective on their clientele, usually requiring a chief compliance officer on the team and backing from a premier VC firm. This list of barriers is creating a narrow bridge between the fiat and crypto worlds as only a handful of companies are successfully acting as intermediaries between the old financial system and the new.</p>
+
+<p>In order to secure the success of cryptocurrencies we must work on widening the bridge between fiat and crypto. We need to make it easier for people to move their funds into cryptocurrencies and make it easier for entrepreneurs to start companies that deal with their transmission without legal repercussions. Financial regulation has already stopped many entrepreneurs from starting businesses in this space and this deterrence will continue. As pointed out by Josh Whiton in his blog post: <a href="http://joshwhiton.com/startups/the-next-silicon-valley/">The Next Silicon Valley</a>, which ever country succeeds in passing and maintaining crypto-friendly regulation will unleash a tremendous amount of financial innovation.</p>
+
+    </section>
+
+    <hr>
+
+    <footer class="post-footer">
+        <section class="f-1">
+            
+            
+            <p class="f-post-time"><time datetime="2014-10-01T23:20:10-07:00">October 1, 2014</time></p>
+        </section>
+                        
+        <section class="f-2">
+            <section class="share">
+                <span>Share:
+                <a class="icon-twitter" href="http://twitter.com/share?text=Cryptocurrencies%3a%20Turning%20Random%20Characters%20Into%20Financial%20Accounts&url=http%3a%2f%2ffabioberger.com%2fpost%2f2014-10-05-cryptocurrencies-turning-random-characters-into-financial-accounts%2f"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2ffabioberger.com%2fpost%2f2014-10-05-cryptocurrencies-turning-random-characters-into-financial-accounts%2f"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http%3a%2f%2ffabioberger.com%2fpost%2f2014-10-05-cryptocurrencies-turning-random-characters-into-financial-accounts%2f"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                </span>
+            </section>
+
+            
+        </section>
+                        
+    </footer>
+</article>
+	</div>
+</main>
+    <footer id="site-footer">
+        <div class="container">
+            <a href="http://fabioberger.com/index.xml" title="Get the RSS feed"><span class="tooltip"><i class="fa fa-rss"></i></span></a>
+            <section>&copy; <a href="http://fabioberger.com/"></a> 2015 | All rights reserved</section>
+            <section>Theme by <a href="http://www.jrdnbwmn.com">Jordan Bowman</a>. Generated with <a href="http://gohugo.io/">Hugo</a>.</section>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://fabioberger.com/js/fittext.js"></script>
+    <script type="text/javascript">
+      $(".heading").fitText();
+    </script>
+
+
+</body>
+</html>

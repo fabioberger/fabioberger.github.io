@@ -1,0 +1,1161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Fabio Berger</title>
+    <link>http://fabioberger.com/post/</link>
+    <description>Recent content in Posts on Fabio Berger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Nov 2015 23:20:10 -0700</lastBuildDate>
+    <atom:link href="http://fabioberger.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Intro to Programming</title>
+      <link>http://fabioberger.com/post/2015-11-02-programming/</link>
+      <pubDate>Mon, 02 Nov 2015 23:20:10 -0700</pubDate>
+      
+      <guid>http://fabioberger.com/post/2015-11-02-programming/</guid>
+      <description>
+
+&lt;h3 id=&#34;introduction:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Welcome to the wonderful world of programming. In this intro guide, I want to help you get up to speed with some of the fundamentals of what &amp;lsquo;programming&amp;rsquo; actually means and how you can get started with learning this very powerful tool. Computers can empower you to build systems that work while you sleep, send information around the globe in milliseconds and calculate really complex equations in the blink of an eye. Let&amp;rsquo;s get you some of these magic powers so that you can apply them to solve the problems you care about.&lt;/p&gt;
+
+&lt;h3 id=&#34;everything-is-a-file:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;Everything is a file&lt;/h3&gt;
+
+&lt;p&gt;Computers are simply a collection of files. Some files, such as Microsoft Word files, contain the words we humans write. They also contain the instructions on how to display those words on the screen. What to &lt;code&gt;bold&lt;/code&gt;, &lt;code&gt;underline&lt;/code&gt; and what to make size font &lt;code&gt;24&lt;/code&gt; and what size font &lt;code&gt;28&lt;/code&gt;. Similarly, every computer program is written in files, using characters found on your keyboard. Look down at your keyboard now. Do you see all those weird keys on the perimeter of your keyboard that you hardly use? (i.e &lt;code&gt;#, %, &amp;amp;, *, [, ], |&lt;/code&gt;) Lots of those are used when writing computer programs and have been assigned specific meanings in computer languages. For example, the character &lt;code&gt;!&lt;/code&gt; has been assigned the mathematical operation of negation. If I were to write: &lt;code&gt;isSheGerman = !true&lt;/code&gt; that would mean the same as &lt;code&gt;isSheGerman = false&lt;/code&gt;. Not true is false. But we are getting a little carried away here, what is important to realize is that computer programs are not written as 1001101001000101011 by programers but rather are written in english looking words into files. You can then tell the computer to run the file and execute the instructions within them.&lt;/p&gt;
+
+&lt;h3 id=&#34;a-program-is-a-fancy-word-for-recipe:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;A &lt;code&gt;program&lt;/code&gt; is a fancy word for &lt;code&gt;recipe&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Every program is simply a set of instructions that the computer reads from top to bottom. They are simply a recipe of what to do and when to do it. Let&amp;rsquo;s write out a simple recipe for making bread and then see what the equivalent computer program would look like:&lt;/p&gt;
+
+&lt;h4 id=&#34;recipe:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;Recipe&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;- Get a large bowl
+- Add yeast and warm water to the bowl
+-  Add 3 tablespoons of sugar
+-  Add 1 tablespoon of salt
+-  Add 2 tablespoons canola oil and 3 cups flour
+-  Beat 30 times
+-  knead until smooth and elastic
+-  Cover and let rise for 1 and a 1/2 hours
+-  Bake at 375° until golden brown
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;program:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;Program&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var largeBowl = [];
+largeBowl.push(yeast);
+largeBowl.push(1TablespoonSugar * 3);
+largeBowl.push(1TablespoonSalt);
+largeBowl.push(1TablespoonCanolaOil * 2);
+largeBowl.push(1CupFlour * 3);
+for (ingredient of largeBowl) {
+	beat(ingredient);
+}
+while(!isWellKneaded AND !isElastic) {
+	knead(largeBowl);
+}
+setTimeout(bakeAt375DegreesUntilBrown(largeBowl), OneAndAHalfHours);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is what you are writing when you are &lt;code&gt;programming&lt;/code&gt;. Just like a human following a recipe, the computer will read these instructions written in a &lt;code&gt;language&lt;/code&gt; it understands and will follow each instruction sequentially. This example is in javascript, which most websites are written in, but a lot of the concepts you learn in one language are the same in every other language.&lt;/p&gt;
+
+&lt;h3 id=&#34;3-basic-concepts-found-in-all-programming-languages:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;3 Basic Concepts Found In All Programming Languages&lt;/h3&gt;
+
+&lt;p&gt;Although there are many programming languages: &lt;code&gt;python, javascript, golang, ruby, C++, java, objective-c, etc...&lt;/code&gt;, all of them have the following basic building blocks to express the instructions we humans care about. Here are some of the main concepts you will be learning about and why they are important:&lt;/p&gt;
+
+&lt;h4 id=&#34;variables:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;Variables&lt;/h4&gt;
+
+&lt;p&gt;Just like in math, sometimes it can make life easier to give a name to values instead of simply re-writing the number everywhere. In math you might say:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;x = 10
+y = 5
+z = 2*x + y
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Therefore the value of z is 25. Similarly, you can assign &lt;code&gt;values&lt;/code&gt; to &lt;code&gt;variables&lt;/code&gt; in programming. A value can be a number, but it can also be text or a collection. Here are some examples:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var x = 10;
+var y = 5;
+var z = 2*x + y;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;z is equal to 25!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var firstName = &#39;Fabio&#39;;
+var lastName = &#39;Berger&#39;;
+var fullName = firstName + &#39; &#39; + lastName;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;fullName is equal to &amp;lsquo;Fabio Berger&amp;rsquo;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var pets = [cat, dog];
+pets.push(parrot);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;pets is equal to [cat, dog, parrot].&lt;/p&gt;
+
+&lt;p&gt;In programming, the &lt;code&gt;=&lt;/code&gt; sign does not mean equality in the mathematical sense, but rather &lt;code&gt;assignment&lt;/code&gt;, let us set the value of the name on the left to the value on the right. Variables are important because they let us give more descriptive names to the data we are processing and can make our recipes more readable.&lt;/p&gt;
+
+&lt;h4 id=&#34;if-statements:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;If Statements&lt;/h4&gt;
+
+&lt;p&gt;An &lt;code&gt;if statement&lt;/code&gt; is a conditional statement. Sometimes just like in a human recipe, you want to do something IF something else has happened. For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if(ovenIsAt360Degrees) {
+	putBreadIntoOven();
+} else {
+	wait30MinutesAndTryToPutBreadInOvenAgain();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When the computer needs to decide whether to put the bread into the oven, we can tell it to only do so IF the oven is already pre-heated to 360 degrees celsius. Therefore &lt;code&gt;if statements&lt;/code&gt; let us have divergent paths of instructions for the computer.&lt;/p&gt;
+
+&lt;h4 id=&#34;loops:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;Loops&lt;/h4&gt;
+
+&lt;p&gt;Sometimes you want to do something to every item within a collection. Let&amp;rsquo;s say you have 6 guests at a party, we want to give each one a drink and then sit them down. To do this, we can use a &lt;code&gt;for loop&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var guests = [fabio, john, marlene, soroush, alex, stephanie];
+for (guest of guests) {
+	giveADrinkTo(guest);
+	sitGuestDown(guest);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This means, for every guest in the collection of guests, give them a drink and then sit them down. The instructions between the curly braces will be executed once for each guest at the party. Each will be given a drink and then sat down. This lets you write the instructions only once even though you want them performed for however many guests show up to your party.&lt;/p&gt;
+
+&lt;h3 id=&#34;conclusion-to-introduction:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;Conclusion to Introduction&lt;/h3&gt;
+
+&lt;p&gt;I hope this very short introduction has given you the sense that when you pop open the hood of your computer and get a glimpse of how they work, that some of the mystery that surrounds them disappears. Programming is an exercise that requires wit, problem solving and creativity. It also requires a lot of patience and a tolerance for making mistakes. The reward however is mastering a tool that can be used in every single field of human endeavor. Stay tuned for more tidbit lessons and check out some of these more comprehensive online resources to continue your journey into the world of programming! ;)&lt;/p&gt;
+
+&lt;p&gt;*Last piece of advice: When you start learning about programming, many things will not make sense the first time you see/read them. Don&amp;rsquo;t get discouraged, just keep reading, even if you don&amp;rsquo;t understand and somehow you brain will eventually start to make sense of it!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://pine.fm/LearnToProgram/&#34;&gt;https://pine.fm/LearnToProgram/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.codecademy.com/&#34;&gt;https://www.codecademy.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.khanacademy.org/computing/computer-programming/programming&#34;&gt;https://www.khanacademy.org/computing/computer-programming/programming&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How To Dockerize A Golang Webapp With Postgres DB</title>
+      <link>http://fabioberger.com/post/2014-12-19-how-to-dockerize-golang-webapp-with-postgres-db/</link>
+      <pubDate>Fri, 19 Dec 2014 23:20:10 -0700</pubDate>
+      
+      <guid>http://fabioberger.com/post/2014-12-19-how-to-dockerize-golang-webapp-with-postgres-db/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;ve been playing around with &lt;a href=&#34;ttps://www.docker.com/&#34;&gt;Docker&lt;/a&gt; recently and have decided to use it in the deployment of a Golang Negroni + Postgres webapp I&amp;rsquo;ve been working on. In order to ensure future scalability and to comply with best practices, this meant spinning up two docker containers, one for the app and another for the database and linking the two. Working with docker for the first time, there were quite a few gotchas involved so I wanted to share with you a comprehensive walkthrough.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/go-docker.png&#34; style=&#34;width: 250px; height: 180px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;You can find the demo app for this tutorial here: &lt;a href=&#34;https://github.com/fabioberger/dockerize-tutorial&#34;&gt;Github.com/Dockerize-Tutorial&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This guide assumes you already have Docker installed, if not, &lt;a href=&#34;http://docs.docker.com/installation/&#34;&gt;install it now.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;step-1-setup-postgres-docker-container:cf2efe0312a1ed00c0554a27760ecde8&#34;&gt;Step 1: Setup Postgres Docker Container&lt;/h3&gt;
+
+&lt;p&gt;First, lets pull down and run the &lt;a href=&#34;https://registry.hub.docker.com/_/postgres/&#34;&gt;Official Postgres docker image&lt;/a&gt; from Docker Hub. We will give it the convenient name &amp;lsquo;db&amp;rsquo; and also set the default &amp;lsquo;postgres&amp;rsquo; user&amp;rsquo;s password:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run --name db -e POSTGRES_PASSWORD=YOUR_PASSWORD -d postgres
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;-d&lt;/code&gt; flag tells docker to run this container as a daemon so it will be running quietly in the background. Next, lets create our app&amp;rsquo;s dedicated postgres user and create the database. To do this, let&amp;rsquo;s open the containers bash shell:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker exec -it db /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;From this bash shell lets launch psql:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;psql -U postgres
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Within the postgres interactive shell let&amp;rsquo;s create the user and db:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;CREATE USER app;
+CREATE DATABASE testapp;
+GRANT ALL PRIVILEGES ON DATABASE testapp TO app;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then exit psql (ctrl-d). Now that we&amp;rsquo;ve set up the DB, we are going to edit a config file within this container so lets install a text editor (Vim! I choose you!).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;apt-get update &amp;amp;&amp;amp; apt-get install vim
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s use our new superpowers to edit the postgres &amp;lsquo;pg_hba.conf&amp;rsquo; configuration file which controls client authentication. We need to change this file to allow our custom postgres user we created above to access the DB running on this container from the app container we will be creating later. By default, only the &amp;lsquo;postgres&amp;rsquo; user has this power. To discover the whereabouts of this config file we can ask postgres:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;psql -U postgres
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;in the postgres interactive shell run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SHOW hba_file;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Copy the file path returned and exit the psql shell (ctrl-d). Now lets edit this file with vim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vi /var/lib/postgresql/data/pg_hba.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Change the last line in the file to the following and save the changes by typing &lt;code&gt;:wq&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;host all &amp;quot;app&amp;quot; 0.0.0.0/0 trust
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Since this configuration file is only run when postgres boots up, we will now stop and start the db container. Exit back to your host computer (ctrl-d) and run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker stop db
+docker start db
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The changes should have taken effect and our Postgres container is now ready!&lt;/p&gt;
+
+&lt;h3 id=&#34;step-2-dockerize-the-golang-app:cf2efe0312a1ed00c0554a27760ecde8&#34;&gt;Step 2: Dockerize The Golang App&lt;/h3&gt;
+
+&lt;p&gt;In order to Dockerize our Go App, we must create a Dockerfile within our projects&amp;rsquo; folder. If you don&amp;rsquo;t want to Dockerize an existing Golang App you are currently working on, you can clone the &lt;a href=&#34;https://github.com/fabioberger/dockerize-tutorial&#34;&gt;Dockerize-tutorial Demo App&lt;/a&gt; and follow along with that application. In the root directory of our Golang project, create the Dockerfile:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;touch Dockerfile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Within this file, we will add these three lines:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM golang:onbuild
+RUN go get bitbucket.org/liamstask/goose/cmd/goose
+EXPOSE 4000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first line will run the  &amp;lsquo;onbuild&amp;rsquo; variant of the golang image that automatically copies the package source, fetches the application dependencies, builds the program, and configures it to run on startup. The second line will install &amp;lsquo;goose&amp;rsquo;, our migration tool within the app container while the last line will expose port 4000 (where our app will be running) of the container to the outside world. Once we have this, we can now build a docker image for our app. From within the project directory, run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker build -t app .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The result of this command is a docker image of our golang app called &amp;lsquo;app&amp;rsquo;. We can now run a docker container from this image:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -d -p 8080:4000 --name tutapp --link db:postgres app
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s break this command down: &lt;code&gt;-d&lt;/code&gt; tells docker to run this container as a daemon. &lt;code&gt;-p 8080:4000&lt;/code&gt; tells docker to map the containers port 4000 (where our app lives) to our host computer&amp;rsquo;s port 8080. We conveniently name the docker container &amp;lsquo;tutapp&amp;rsquo; for future fun and lastly, &lt;code&gt;--link db:postgres&lt;/code&gt; links our app container to the postgres container we created earlier called &amp;lsquo;db&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;The act of linking the two containers has given our app container access to an environment variable called &amp;lsquo;$POSTGRES_PORT_5432_TCP_ADDR&amp;rsquo;. This environment variable contains the host address we must use when connecting to the Postgres DB. For that reason, we must make sure that our dbconf.yml file sets the host to this variable:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;db:
+   driver: postgres
+   open: host=$POSTGRES_PORT_5432_TCP_ADDR user=app dbname=testapp sslmode=disable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The config.go file in the demo app replaces this variable with the environment variable set within this container.&lt;/p&gt;
+
+&lt;p&gt;The last step required is to run the DB migrations for our app, so lets run &amp;lsquo;goose up&amp;rsquo; inside the tutapp container:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker exec -it tutapp goose up
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To visit the app, go to &lt;a href=&#34;http://localhost:8080&#34;&gt;http://localhost:8080&lt;/a&gt; and you should see the app running!&lt;/p&gt;
+
+&lt;p&gt;(If your docker daemon is running on another machine (or in a virtual machine), you should replace localhost with the address of that machine. If you&amp;rsquo;re using boot2docker on OS X or Windows you can find that address with the command &amp;lsquo;boot2docker ip&amp;rsquo;)&lt;/p&gt;
+
+&lt;p&gt;You now have a Golang app running and successfully communicating with a Postgres DB on a separate Docker Container. If anything was unclear or if anything didn&amp;rsquo;t work for you, please leave me a comment below so that I can improve this post for others!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building a Coinbase App in Go</title>
+      <link>http://fabioberger.com/post/2014-11-06-building-a-coinbase-app-in-go/</link>
+      <pubDate>Thu, 06 Nov 2014 23:20:10 -0700</pubDate>
+      
+      <guid>http://fabioberger.com/post/2014-11-06-building-a-coinbase-app-in-go/</guid>
+      <description>
+
+&lt;p&gt;Coinbase is a terrific Bitcoin Hosted Wallet that continues to simplify the purchase and safe storage of Bitcoin. They have an extensive API that allows 3rd party developers to build apps on top of their platform. I noticed they didn&amp;rsquo;t have an API wrapper written in Go, so I decided to write one. In this post, I will show you how to write a simple app using both their API Key and OAuth methods of authentication.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/coinbase.png&#34; style=&#34;width: 380px; height: 88px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The library is hosted on Github &lt;a href=&#34;https://github.com/fabioberger/coinbase-go&#34;&gt;here&lt;/a&gt; together with a comprehensive &lt;a href=&#34;https://github.com/fabioberger/coinbase-go/#examples&#34;&gt;list of examples&lt;/a&gt;, detailing the many API calls it supports.&lt;/p&gt;
+
+&lt;h2 id=&#34;api-key-application:7f2739633295498195ccdf14b763bdb4&#34;&gt;API Key Application&lt;/h2&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Every Coinbase user can request an API key and secret associated with their account. With it, they can programmatically interact with their account (i.e automate purchases &amp;amp; sales of Bitcoin, retrieve previous transactions, orders and recepients, etc&amp;hellip;). This first part of the tutorial will show you how to use the Coinbase-go library to print out your current Coinbase balance.&lt;/p&gt;
+
+&lt;h3 id=&#34;env&#34;&gt; Adding Your Key Pair to Environment Variables &lt;/h3&gt;
+
+&lt;p&gt;First, we need to create a key pair on &lt;a href=&#34;https://coinbase.com/settings/api&#34;&gt;Coinbase&amp;rsquo;s API Settings page&lt;/a&gt;. Make sure to enable the key pair by copying over the verification code sent via email from Coinbase.&lt;/p&gt;
+
+&lt;p&gt;Once this is done, let&amp;rsquo;s set the key and secret as environment variables in our shell&amp;rsquo;s config file by running the following in terminal:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;echo &amp;quot;export COINBASE_KEY=&#39;YOUR_KEY&#39; &amp;quot; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;echo &amp;quot;export COINBASE_SECRET=&#39;YOUR_SECRET&#39; &amp;quot; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that we might need to replace .bash_profile with .bashrc or whatever shell config file is in use (more on this &lt;a href=&#34;http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_01.html&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Once this is done, we need to reload our shell configs:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;source ~/.bash_profile #  or .bashrc, etc.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In order to check that this worked properly, try running the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;echo $COINBASE_KEY
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If this printed out your coinbase key we are good to go! The reason we set the key and secret as environment variables is because it is considered good &lt;a href=&#34;https://www.coinbase.com/docs/api/overview#security&#34;&gt;security practice&lt;/a&gt; not to include API keys in our project source code. If someone got access to your API key and secret, they could gain control over your Coinbase account.&lt;/p&gt;
+
+&lt;h3 id=&#34;downloading-the-library:7f2739633295498195ccdf14b763bdb4&#34;&gt;Downloading the Library&lt;/h3&gt;
+
+&lt;p&gt;We assume here that you have already installed &lt;a href=&#34;http://golang.org/&#34;&gt;Golang&lt;/a&gt; on your machine. Make sure you also have your $GOPATH set. If not, run the following after editing the path to your actual Go workspace path:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;echo &amp;quot;export GOPATH=&#39;path/to/your/go/folder&#39;&amp;quot; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We are now ready to download the Coinbase-go library with the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go get github.com/fabioberger/coinbase-go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;writing-the-app:7f2739633295498195ccdf14b763bdb4&#34;&gt;Writing the App&lt;/h3&gt;
+
+&lt;p&gt;For this demo, we are going to write a simple command line application which will output our current Coinbase balance. Lets create a new project within our Go workspace called coinbase-app and create our main.go file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mkdir $GOPATH/src/coinbase-app
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd $GOPATH/src/coinbase-app
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;touch main.go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Opening up main.go, we can write the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+import (
+	&amp;quot;fmt&amp;quot;
+	&amp;quot;log&amp;quot;
+	&amp;quot;os&amp;quot;
+	&amp;quot;github.com/fabioberger/coinbase-go&amp;quot;
+)
+
+func main() {
+
+	c := coinbase.ApiKeyClient(os.Getenv(&amp;quot;COINBASE_KEY&amp;quot;), os.Getenv(&amp;quot;COINBASE_SECRET&amp;quot;))
+
+	balance, err := c.GetBalance()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf(&amp;quot;Balance is %f BTC&amp;quot;, balance)
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This simple program imports the Coinbase-go library, along with the &amp;lsquo;fmt&amp;rsquo;, &amp;lsquo;log&amp;rsquo; and &amp;lsquo;os&amp;rsquo; Go standard library packages. Within main, we instantiate an APIKeyClient using the API key pair we set as environment variables. Once we have done this, we can use this client &amp;lsquo;c&amp;rsquo; to call convenience methods for sending requests to most of Coinbases API endpoints. For this example, we call the &amp;lsquo;GetBalance()&amp;rsquo; method in order to request our current balance from Coinbase.&lt;/p&gt;
+
+&lt;p&gt;To test out this example, run the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go run main.go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For a full list of available methods, visit the &lt;a href=&#34;https://godoc.org/github.com/fabioberger/coinbase-go&#34;&gt;Coinbase-go GoDoc Page&lt;/a&gt; and for examples on how to call them, look at the &lt;a href=&#34;https://github.com/fabioberger/coinbase-go/blob/master/README.md#examples&#34;&gt;README examples section&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;oauth&#34;&gt;OAuth Authentication&lt;/h2&gt;
+
+&lt;p&gt;It&amp;rsquo;s great to be able to interact with our own Coinbase account via the API, especially for automating trades and keeping an eye on our account. What is even more powerful however is being able to build apps that any Coinbase account holder can use. To do this, we need to build an OAuth enabled application.&lt;/p&gt;
+
+&lt;h3 id=&#34;setup:7f2739633295498195ccdf14b763bdb4&#34;&gt;Setup&lt;/h3&gt;
+
+&lt;p&gt;First we need to create an OAuth application at &lt;a href=&#34;https://coinbase.com/oauth/applications&#34;&gt;https://coinbase.com/oauth/applications&lt;/a&gt;. We will need to specify a redirect URI (&amp;lsquo;&lt;a href=&#34;https://localhost:8443/tokens&#39;&#34;&gt;https://localhost:8443/tokens&#39;&lt;/a&gt; during development). Coinbase will give us a Client Id and Secret for your OAuth App, let&amp;rsquo;s add these to our shell configs as environment variables and reload them:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;echo &amp;quot;export COINBASE_CLIENT_ID=&#39;YOUR_CLIENT_ID&#39; &amp;quot; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;echo &amp;quot;export COINBASE_CLIENT_SECRET=&#39;YOUR_CLIENT_SECRET&#39; &amp;quot; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;source ~/.bash_profile # .bashrc, etc.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Remember that we might need to replace .bash_profile with our shell config file name.&lt;/p&gt;
+
+&lt;p&gt;We will assume we have also downloaded the Coinbase-go library but if not, refer to the
+&amp;lsquo;Downloading the Library&amp;rsquo; section under the &amp;lsquo;API Key Application&amp;rsquo; instructions. In order to build this example web app using the &lt;a href=&#34;http://martini.codegangsta.io/&#34;&gt;Martini Framework&lt;/a&gt;, we will need to download it as well:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go get github.com/go-martini/martini
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Martini is a powerful package for quickly writing modular web applications/services in Golang. We will use it to build a simple OAuth application that returns the balance of any Coinbase user who authenticates through our app.&lt;/p&gt;
+
+&lt;h3 id=&#34;writing-the-app-1:7f2739633295498195ccdf14b763bdb4&#34;&gt;Writing the App&lt;/h3&gt;
+
+&lt;p&gt;Lets create a new project within our Go workspace called coinbase-oauth and create our main.go file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mkdir $GOPATH/src/coinbase-oauth
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd $GOPATH/src/coinbase-oauth
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;touch main.go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Opening up main.go, we will write the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+import (
+	&amp;quot;log&amp;quot;
+	&amp;quot;net/http&amp;quot;
+	&amp;quot;os&amp;quot;
+	&amp;quot;strconv&amp;quot;
+	&amp;quot;github.com/fabioberger/coinbase-go&amp;quot;
+	&amp;quot;github.com/go-martini/martini&amp;quot;
+)
+
+var o *coinbase.OAuth
+
+func main() {
+	// Martini Setup
+	m := martini.New()
+	m.Use(martini.Logger())
+	m.Use(martini.Recovery())
+	m.Use(martini.Static(&amp;quot;public&amp;quot;))
+	r := martini.NewRouter()
+	m.MapTo(r, (*martini.Routes)(nil))
+	m.Action(r.Handle)
+
+	// Instantiate OAuthService with the OAuth App Client Id &amp;amp; Secret from the Environment Variables
+	o, err := coinbase.OAuthService(os.Getenv(&amp;quot;COINBASE_CLIENT_ID&amp;quot;), os.Getenv(&amp;quot;COINBASE_CLIENT_SECRET&amp;quot;), &amp;quot;https://localhost:8443/tokens&amp;quot;)
+	if err != nil {
+		panic(err)
+		return
+	}
+
+	// At http://localhosts:8443/ we will display an &amp;quot;authorize&amp;quot; link
+	r.Get(&amp;quot;/&amp;quot;, func() string {
+		authorizeUrl := o.CreateAuthorizeUrl([]string{
+			&amp;quot;all&amp;quot;,
+		})
+		link := &amp;quot;&amp;lt;a href=&#39;&amp;quot; + authorizeUrl + &amp;quot;&#39;&amp;gt;authorize&amp;lt;/a&amp;gt;&amp;quot;
+		return link
+	})
+
+	// After authentication, AuthorizeUrl redirects to https://localhost:8443/tokens with
+	// query parameter &#39;code&#39;. If successful, the user&#39;s balance will show
+	r.Get(&amp;quot;/tokens&amp;quot;, func(res http.ResponseWriter, req *http.Request) string {
+
+		// Get the tokens given the &#39;code&#39; query param
+		tokens, err := o.NewTokensFromRequest(req) // Will use &#39;code&#39; query param from req
+		if err != nil {
+			return err.Error()
+		}
+
+		// Instantiate the OAuthClient with tokens
+		c := coinbase.OAuthClient(tokens)
+
+		// Request the user&#39;s balance
+		amount, err := c.GetBalance()
+		if err != nil {
+			return err.Error()
+		}
+		return strconv.FormatFloat(amount, &#39;f&#39;, 6, 64)
+	})
+
+	// HTTP
+	go func() {
+		if err := http.ListenAndServe(&amp;quot;:8080&amp;quot;, m); err != nil {
+			log.Fatal(err)
+		}
+	}()
+
+	// HTTPS
+	// To generate a development cert and key, run the following from your *nix terminal:
+	// go run $(go env GOROOT)/src/pkg/crypto/tls/generate_cert.go --host=&amp;quot;localhost&amp;quot;
+	if err := http.ListenAndServeTLS(&amp;quot;:8443&amp;quot;, &amp;quot;cert.pem&amp;quot;, &amp;quot;key.pem&amp;quot;, m); err != nil {
+		log.Fatal(err)
+	}
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Before we can run the above code, Coinbase requires our redirect URI to communicate over SSL in order to protect their user&amp;rsquo;s data. In order to run our server through HTTPS, we need to generate a development cert and key pair. Luckily, we can do this easily:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go run $(go env GOROOT)/src/pkg/crypto/tls/generate_cert.go --host=&amp;quot;localhost&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This command will create a cert.pem and key.pem file in our directory. Since this is a self-signed certificate, our browser might complain that the certificate isn&amp;rsquo;t trusted by a Certificate Authority. Since we are running this server however, we can safely ask our browser to ignore this warning and continue rendering the page. When deploying our app for the world to use, we will need to purchase an SSL certificate from a trusted Certificate Authority. We can now run this example with the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go run main.go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To see the example, visit &lt;a href=&#34;https://localhost:8443/&#34;&gt;https://localhost:8443/&lt;/a&gt; in your browser.&lt;/p&gt;
+
+&lt;p&gt;Ok, lets walk step by step through the code we just wrote. We start by importing Martini, Coinbase-go and a couple other Go standard library packages. Go then runs the main function which begins by instantiating OAuthService with the OAuth app client Id and Secret we defined as environment variables as well as a redirect URI back to our app. We can then use this OAuthService &amp;lsquo;o&amp;rsquo; in the rest of our app.&lt;/p&gt;
+
+&lt;p&gt;Next, we define a Handle Function for requests sent to &lt;a href=&#34;http://localhost:8443/&#34;&gt;http://localhost:8443/&lt;/a&gt;. When someone requests this url, the app calls &amp;lsquo;o.CreateAuthorizeUrl()&amp;rsquo; to generate the authentication URL we would like to redirect users to in order for them to authorize our app&amp;rsquo;s access to their Coinbase account. We pass into this method the desired permissions to request from the user (&lt;a href=&#34;https://www.coinbase.com/docs/api/permissions&#34;&gt;full permissions list&lt;/a&gt;). This method then displays a link to the authorization page at Coinbase.&lt;/p&gt;
+
+&lt;p&gt;Once the user has clicked on this link, authorized our application on Coinbase, they will be sent back to the redirect URI we defined in OAuthService, in this case &lt;a href=&#34;https://localhost:8443/tokens&#34;&gt;https://localhost:8443/tokens&lt;/a&gt;. This endpoint is the next Handle Function defined in the code. It calls the &amp;lsquo;o.NewTokensFromRequest()&amp;rsquo; convenience method which will extract the &amp;lsquo;code&amp;rsquo; query parameter returned by Coinbase and request the tokens associated with it.&lt;/p&gt;
+
+&lt;p&gt;Once we have these tokens, we can instantiate an OAuthClient with them. This client is similar to the ApiKeyClient above and has access to all the same convenience methods for sending requests to the Coinbase API. The only difference is that this time, each of those requests will be on behalf of the authenticated user. The next step in the code is for us to call &amp;lsquo;GetBalance()&amp;rsquo; and return its response to the user.&lt;/p&gt;
+
+&lt;p&gt;The tokens we received from Coinbase have an expiry time we can access through &amp;lsquo;tokens.ExpireTime&amp;rsquo;. When we are getting close to this time, we will need to call &amp;lsquo;o.RefreshTokens(tokens)&amp;rsquo; in order to renew their validity.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion:7f2739633295498195ccdf14b763bdb4&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I hope that this walk through on how to create a Coinbase app using the Golang API wrapper was helpful. Please be sure to take a look at the &lt;a href=&#34;https://github.com/fabioberger/coinbase-go/blob/master/README.md#examples&#34;&gt;README examples section&lt;/a&gt; on the Github project for more examples on the kinds of requests that are available through the wrapper. If you have any questions or comments, don&amp;rsquo;t hesitate to reach out!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dubbit: The Cartoon Creator App</title>
+      <link>http://fabioberger.com/post/2014-10-12-dubbit-the-cartoon-creator-app/</link>
+      <pubDate>Sun, 12 Oct 2014 23:20:10 -0700</pubDate>
+      
+      <guid>http://fabioberger.com/post/2014-10-12-dubbit-the-cartoon-creator-app/</guid>
+      <description>
+
+&lt;p&gt;About a year ago I was watching South Park and realized how hilarious the show was despite the simplicity of the animations. I then started to think about how many more funny stories could be told if anyone could make an animation, not just the handful of people at South Park Studios. I decided to find out and began building Dubbit, an animated cartoon creator app together with Soroush Pour. After we threw in a month or two of work, it was starting to come together and we launched a minimally viable product with a bare bones feature set to the Apple app store and the cartoons started pouring in from all around the world!&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/dubbit_screen1.png&#34; style=&#34;width: 550px; height: 268px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;It was again one of those awesome builder moments when you release what you have been working on for a while and see people using it for the first time.  Each laughing person we heard in the background of a cartoon voice-over made us smile, we had created something silly but also very special. I wanted to share with you some of the technical challenges of building Dubbit, as well as some of the cartoons our users created.&lt;/p&gt;
+
+&lt;h2 id=&#34;video-uploads-are-slow:ba8db50d2aa993a0c0d56fa6ca53f96c&#34;&gt;Video Uploads Are Slow&lt;/h2&gt;
+
+&lt;p&gt;The biggest challenge to building Dubbit was having fast upload times for users who wanted to share their animated cartoons. At first we thought we could just record the phone screen and audio while they made the animation on app. For a 30 second cartoon, this resulted in a ~64MB MP4 file which even when compressed was still a lot  of data to upload during app use. We resorted to recording the character coordinate points for each frame of the animation (30 times a second) so we had a detailed record of the animation at every frame of a 30 fps (frames per second) video. This file was a couple of kilobytes large and could be compressed together with the audio recording of the animation and uploaded to our backend server where we used pygame and FFMpeg to convert it into an actual video file.&lt;/p&gt;
+
+&lt;p&gt;Converting a coordinates file into a video file meant recreating each frame of the video from the coordinates using Pygame, saving these frames as images and then combining all the images into a video file and overlaying the audio so that it matched up with the animation. This brought down the upload time to under 2 seconds! Success!&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/dubbit_transcoding.png&#34; style=&#34;width: 1398px; height: 305px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We did however shift some of the waiting time to those who wanted to view the animation since transcoding and uploading it to Youtube took a couple seconds. In addition to this, another cost of speeding up the upload process was building the animations rendering engine on the server side which was a good amount of work. It did however make the app very user-friendly and usable and was considered a necessary trade-off.&lt;/p&gt;
+
+&lt;h2 id=&#34;push-vs-pull-transcoding:ba8db50d2aa993a0c0d56fa6ca53f96c&#34;&gt;Push vs. Pull Transcoding&lt;/h2&gt;
+
+&lt;p&gt;When we first created the video transcoder on the server side, we had a cron running every 5 seconds, looking for any unprocessed animations to transcode. Although this system worked, it was a very inefficient use of our computing power, not to say anything of the potential lag time if your animation just missed the cron run. We quickly realized that a push system would work much better then polling the unprocessed queue at a regular interval. Enter ZeroMQ.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://zeromq.org/&#34;&gt;ZeroMQ&lt;/a&gt; is a concurrent networking library that makes it easy to connect sockets N-to-N with patterns such as fan-out, pub-sub, task distribution and request-reply. For Dubbit, we used their &lt;a href=&#34;http://zguide.zeromq.org/page:all/#header-14&#34;&gt;publisher-subscriber pattern&lt;/a&gt; to allow our video transcoder to be notified as soon as a new animation was available for processing. When the video transcoder gets this notification, it hands the job to one of 5 worker threads waiting for work. If all workers are busy, the job gets queued until the next worker is free to take it on. In this way, we can transcode 5 animations simultaneously and never drop a notification but rather queue them until they can be processed.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/zeromq.png&#34; style=&#34;width: 960px; height: 549px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;With this kind of architecture, it would have been very easy to scale both vertically and horizontally. We could easily move the process to a large EC2 instance and increase the number of worker threads running on any given machine. We could also switch from the pub-sub pattern to a &lt;a href=&#34;http://zguide.zeromq.org/page:all/#header-15&#34;&gt;parallel pipeline pattern&lt;/a&gt;, allowing us to have workers pull jobs on multiple instances from a single ventilator instance.&lt;/p&gt;
+
+&lt;h2 id=&#34;nstimer-isn-t-very-timely:ba8db50d2aa993a0c0d56fa6ca53f96c&#34;&gt;NSTimer Isn&amp;rsquo;t Very Timely&lt;/h2&gt;
+
+&lt;p&gt;While building the animations recorder class in our iOS app, we needed the coordinates of the characters to be recorded 30 times a second in order for us to then create a 30 fps video. In order to do this, we first tried using NSTimer to call the recordFrame method every 33.33 millisecond but quickly found that it was not in fact a real-time timer. NSTimer  In order to call recordFrame 30 times a second, we had to use CADisplayLink as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objective-c&#34;&gt;displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(recordFrame:)];
+displayLink.frameInterval = 2;
+[displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;CADisplay was intended as a timer object that allows applications to synchronise their drawing to the refresh rate of the display. Because of this, it really was a real-time timer and by setting frameInterval to 2, it would call our method after every two frame refreshes, equivalent to 30 times a second.&lt;/p&gt;
+
+&lt;h2 id=&#34;user-onboarding-is-non-trivial:ba8db50d2aa993a0c0d56fa6ca53f96c&#34;&gt;User OnBoarding Is Non-trivial&lt;/h2&gt;
+
+&lt;p&gt;When we first launched Dubbit, we would watch every animation someone created in order to learn about how users used the app. We quickly realized that many new users without us there to educate them on how to make an animation were clueless. Hundreds of silent cartoons without any voiceovers or talking characters made this painfully apparent. In order to fix this, we added a walk-through guide to the app, explaining to users how to make a Dubbit. Below is an animated gif of the responsive directions we gave users as they went through the necessary steps.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/onboarding.gif&#34; style=&#34;width: 500px; height: 300px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This simple addition increased dramatically the number of successful animations created. It was only a first step however and there were still many who weren&amp;rsquo;t figuring out how to use Dubbit fast enough. There is still a lot of room for improvement in this aspect of the app.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-average-person-isn-t-as-funny-as-south-park:ba8db50d2aa993a0c0d56fa6ca53f96c&#34;&gt;The Average Person Isn&amp;rsquo;t As Funny As South Park&lt;/h2&gt;
+
+&lt;p&gt;One of the things we realized quite early on after launching Dubbit was that the average person really wasn&amp;rsquo;t as funny as South Park. The saving grace of this realization however was that many things were only funny to those who knew the creators involved. It turns out a lot of humor stems from the personal relationship we have with the story teller and the specific inside jokes they reference in their animation. This limited amount of transferable comedic value made us think hard as to whether Dubbit should become more of a vine-type app where the best animations get voted into popularity or whether it should be a snapchat-like app between friends. With only such a simple incarnation of the idea, we were already learning an incredible amount about which future direction would make the most sense for this product.&lt;/p&gt;
+
+&lt;h2 id=&#34;dubbit-cartoons-from-the-world-over:ba8db50d2aa993a0c0d56fa6ca53f96c&#34;&gt;Dubbit Cartoons From The World Over&lt;/h2&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+
+&lt;p&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/1b8jXPDj7f8&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/u8O9nz4w_cA&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/YcsL0VZnmtM&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/qvsrkmcJFm4&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/E452OVCECDQ&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/PjlwndM0zgI&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/1GpGvxrkW18&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Unmarshal a JSON Array of Arrays in Go</title>
+      <link>http://fabioberger.com/post/2014-10-09-how-to-unmarshal-a-json-array-of-arrays-in-go/</link>
+      <pubDate>Thu, 09 Oct 2014 23:20:10 -0700</pubDate>
+      
+      <guid>http://fabioberger.com/post/2014-10-09-how-to-unmarshal-a-json-array-of-arrays-in-go/</guid>
+      <description>&lt;p&gt;I recently was dealing with a JSON object returned from an external API. I wanted to decode the JSON object into Golang structs so that I could then process and store its contents in my application. Go has a nifty &lt;a href=&#34;http://golang.org/pkg/encoding/json/&#34;&gt;JSON Package&lt;/a&gt; that makes this process very easy by using the Unmarshal function that takes both the JSON and a pointer to a holder struct into which it is to be decoded.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;err := json.Unmarshal(b, &amp;amp;m)  // b must contain valid JSON that fits into m
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is very straightforward when dealing with JSON objects that contain objects or array of objects. But what if the API returns an array of arrays? In this case, you will need to unmarshal the JSON into a struct containing an array of arrays of either a specific type (i.e string) or an empty interface (i.e interface{}). As an example, if the API returns the following JSON:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+&amp;quot;men&amp;quot;: [
+  	[ &amp;quot;1.80&amp;quot;, &amp;quot;82&amp;quot; ],
+  	[ &amp;quot;1.76&amp;quot;, &amp;quot;75&amp;quot;]
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I now want to create a struct called subject out of the inner array values listed under men. To do this, I will define a holder struct with an array of arrays and then unmarshal the JSON into it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;	holder := struct {
+		Men [][]string `json:&amp;quot;men&amp;quot;`
+	}{}
+	if err := json.Unmarshal(data, &amp;amp;holder); err != nil {
+		return err
+	}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This struct has one property (Men), an array of arrays. In order to create the subject structs, we now need to loop over holder as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;	for _, man := range holder.Men {
+			height := man[1]
+			weight := man[0]
+			subject := Subject{
+				Height:    height,
+				Weight:     weight,
+			}
+			subjects.Men = append(subjects.Men, subject)
+		}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this way, we are able to turn a JSON array of arrays into structs in Go.&lt;/p&gt;
+
+&lt;p&gt;If you are dealing with arrays of arrays that contain values with variable data types, you will need to use the following holder:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;	holder := struct {
+		Men [][]interface{} `json:&amp;quot;men&amp;quot;`
+	}{}
+	if err := json.Unmarshal(data, &amp;amp;holder); err != nil {
+		return err
+	}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The interface{} (empty interface) serves as a general container and can therefore accept any data type. You will however have to assert the type expected for each value before using the values retrieved in holder. For a full tutorial on working with JSON in Go, I would recommend the &lt;a href=&#34;http://blog.golang.org/json-and-go&#34;&gt;JSON and Go post&lt;/a&gt; on the Golang blog.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cryptocurrencies: Turning Random Characters Into Financial Accounts</title>
+      <link>http://fabioberger.com/post/2014-10-05-cryptocurrencies-turning-random-characters-into-financial-accounts/</link>
+      <pubDate>Wed, 01 Oct 2014 23:20:10 -0700</pubDate>
+      
+      <guid>http://fabioberger.com/post/2014-10-05-cryptocurrencies-turning-random-characters-into-financial-accounts/</guid>
+      <description>
+
+&lt;p&gt;For the past month I have been spending lots of my time researching cryptocurrencies, most notably Bitcoin and Stellar. After having read multiple whitepapers, manually generating and executing bitcoin transactions on the blockchain and speaking with many of the thought leaders in the space including: &lt;a href=&#34;http://www.coinbase.com/about&#34;&gt;Fred Ehrsam&lt;/a&gt;, &lt;a href=&#34;https://www.stellar.org/about/&#34;&gt;Joyce Kim&lt;/a&gt; and &lt;a href=&#34;http://gendal.wordpress.com/about/&#34;&gt;Richard Gendal Brown&lt;/a&gt;, I am more convinced then ever before that cryptocurrencies are here to stay and will revolutionize the way our world works. In this post, I want to share with you two of the fundamental realizations that have lead me to this conclusion and also some hurdles that are already slowing down the expansion of cryptocurrencies.&lt;/p&gt;
+
+&lt;h4 id=&#34;permissionless-financial-participation:144a8235a1080e6d5a60bdd8193a8361&#34;&gt;Permissionless Financial Participation&lt;/h4&gt;
+
+&lt;p&gt;In the traditional financial system, in order to transfer money without the use of physical cash, you need to open a bank account.  This process can only be done by human beings within commuting distance of a banking institution willing and eager to open accounts. This is something we take for granted in the developed world, however there are over 2.5 billion individuals who do not have this luxury. In contrast to this cumbersome and physical method of joining the financial system, cryptocurrencies allow anyone with access to an internet enabled device to open a financial wallet, from which they can receive and send payments worldwide with near-zero fees. What makes this possible? The fact that cryptocurrency accounts are nothing more then randomly generated strings of letters and numbers that can be uniquely identified.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/farmer-phone.jpg&#34; style=&#34;width: 400px; height: 300px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;To make this clearer, lets go ahead and generate a bitcoin address that can store, send and received bitcoins (special thanks to &lt;a href=&#34;http://www.righto.com/2014/02/bitcoins-hard-way-using-raw-bitcoin.html&#34;&gt;Key Shirriff&amp;rsquo;s blog post on the raw bitcoin protocol&lt;/a&gt;). The first step is to literally generate a 256-bit string of letters and numbers which will act as the bitcoin addresses private key (analogous to a password).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Warning: this random function is not cryptographically strong and is just for example
+private_key = &#39;&#39;.join([&#39;%x&#39; % random.randrange(16) for x in range(0, 64)])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will result in a private key that looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;private_key = &#39;3f42e34aebc34aff098c901a4ddf658afb29f80d1d158ed2b01fd982fe3aa230&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;From this private key, we can now generate a public address we can send to whoever we would like to receive funds from. In order to do this, we will use the Elliptic Curve DSA algorithm followed by SHA-256 hashing, RIPEM-160 hashing, and then Base58 encoding with checksum to end up with the public bitcoin address:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;signing_key = ecdsa.SigningKey.from_string(private_key.decode(&#39;hex&#39;), curve=ecdsa.SECP256k1)
+public_key = (&#39;\04&#39; + signing_key.verifying_key.to_string()).encode(&#39;hex&#39;)
+
+ripemd160 = hashlib.new(&#39;ripemd160&#39;)
+ripemd160.update(hashlib.sha256(public_key.decode(&#39;hex&#39;)).digest())
+bitcoin_address = utils.base58CheckEncode(0, ripemd160.digest())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With just a few lines of code that could run on even the simplest of computing devices we already have the equivalent of a bank account in this new financial system.&lt;/p&gt;
+
+&lt;h4 id=&#34;the-alternative-ach-is-a-poorly-designed-closed-system:144a8235a1080e6d5a60bdd8193a8361&#34;&gt;The Alternative (ACH) is a Poorly Designed, Closed System&lt;/h4&gt;
+
+&lt;p&gt;The more I learned about the way cryptocurrencies work, the more I wanted to compare it to how the existing financial system works. &lt;a href=&#34;http://gendal.wordpress.com/&#34;&gt;Richard Gendal Brown&amp;rsquo;s blog&lt;/a&gt; was very helpful in this regard, as well as &lt;a href=&#34;http://engineering.zenpayroll.com/how-ach-works-a-developer-perspective-part-1/&#34;&gt;Edward Kim&amp;rsquo;s post&lt;/a&gt; on Zen Payroll&amp;rsquo;s blog about how ACH (Automatic Clearing House) payments work from a developers perspective. It turns out ACH was developed in the 1970&amp;rsquo;s and is entirely a file based system which uses secure FTP to transfer debit or credit files detailing transactions between two parties (Yikes!). All one needs to execute such a transaction is the bank account numbers of the two parties. There is no password, or other form of consent to send a charge across ACH.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/ach.png&#34; style=&#34;width: 450px; height: 257px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;So how does this encrypted but otherwise credential-less protocol protect against unauthorised charges on accounts within its system? It doesn&amp;rsquo;t! It has merely implemented the equivalent of &amp;ldquo;ctrl-z&amp;rdquo; where any institution in the network can undo a transaction by applying the opposite transaction back to the network on behalf of a complaining customer. The reason this does not happen much more frequently is simply because they limit access to the ACH network to chartered banks who act as Originating Depository Financial Institution&amp;rsquo;s for other companies needing access to the system.&lt;/p&gt;
+
+&lt;p&gt;In comparison with ACH, Bitcoin is clearly more secure in that no one in the network can credit your account without access to your private key. With this control returned to the end customer, we can now exist in an open system without gatekeepers to safeguard our accounts. In the future, companies such as Zen Payroll will not have to go through the enormous barrier of having to convince a bank to become their ODFI in order to start accepting business. They could simply join the global payments network that is bitcoin and begin making people&amp;rsquo;s lives easier through exceptional payroll services. This begs the question, how many other financial services companies would exist today if the barrier to joining a payments and settlement network was less cumbersome?&lt;/p&gt;
+
+&lt;h4 id=&#34;the-hurdle-of-the-narrow-bridge:144a8235a1080e6d5a60bdd8193a8361&#34;&gt;The Hurdle of The Narrow Bridge&lt;/h4&gt;
+
+&lt;p&gt;Many of the exact reasons why people are getting excited about cryptocurrencies are the very reasons financial regulators are very nervous about their proliferation. The existing financial system has evolved within a walled garden of sorts where the government has tremendous power and oversight into financial institutions and their regulation. Although cryptocurrencies are not illegal, any US business dealing in their transmission must register with FinCen (The Financial Crimes Enforcement Network), comply with AML (Anti-money Laundering Laws) and KYC (Know Your Customer practices). In addition to this, they also need to register for a MTL (Money Transmitter License) in 48 states, each with different requirements and governing bodies. This is an absurd amount of regulation which will impede all but the most well funded of startups.&lt;/p&gt;
+
+&lt;p&gt;If you do get through these hurdles, finding a bank willing to do business with you will be your next challenge. Bank have received a stern warning from FinCen that if they do accept cryptocurrency business, they will need to brace for stricter audits. This has made many banks unwilling to take on these types of businesses, and those who do (Silicon Valley Bank) are being very selective on their clientele, usually requiring a chief compliance officer on the team and backing from a premier VC firm. This list of barriers is creating a narrow bridge between the fiat and crypto worlds as only a handful of companies are successfully acting as intermediaries between the old financial system and the new.&lt;/p&gt;
+
+&lt;p&gt;In order to secure the success of cryptocurrencies we must work on widening the bridge between fiat and crypto. We need to make it easier for people to move their funds into cryptocurrencies and make it easier for entrepreneurs to start companies that deal with their transmission without legal repercussions. Financial regulation has already stopped many entrepreneurs from starting businesses in this space and this deterrence will continue. As pointed out by Josh Whiton in his blog post: &lt;a href=&#34;http://joshwhiton.com/startups/the-next-silicon-valley/&#34;&gt;The Next Silicon Valley&lt;/a&gt;, which ever country succeeds in passing and maintaining crypto-friendly regulation will unleash a tremendous amount of financial innovation.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Startup Lessons From WealthLift.com</title>
+      <link>http://fabioberger.com/post/2014-01-09-startup-lessons-from-wealthlift-dot-com/</link>
+      <pubDate>Mon, 29 Sep 2014 23:20:10 -0700</pubDate>
+      
+      <guid>http://fabioberger.com/post/2014-01-09-startup-lessons-from-wealthlift-dot-com/</guid>
+      <description>
+
+&lt;p&gt;In august 2012, Soroush and I returned to school after having worked on WealthLift.com full-time for a year. One of our mentors told us to write down all the lessons we had learned from working on WealthLift. I am very thankful that I took the time to do it, and this is what I wrote. It&amp;rsquo;s not the most organised brain dump, but there are some real gems in here that have now become part of my DNA as a founder.&lt;/p&gt;
+
+&lt;h4 id=&#34;1-your-business-partner-is-everything:2ba95b503351d773f81a48362e250646&#34;&gt;1. Your Business Partner is Everything&lt;/h4&gt;
+
+&lt;h5 id=&#34;pick-someone-you-respect-in-both-a-personal-and-professional-way:2ba95b503351d773f81a48362e250646&#34;&gt;Pick someone you respect in both a personal and professional way&lt;/h5&gt;
+
+&lt;p&gt;You will have arguments and bickering. It&amp;rsquo;s really important that you both completely respect one another. Respect each other to tell the truth, even when its  unpleasant, and also enough to judge and weigh each others ideas and arguments with an even hand.  It&amp;rsquo;s easy to belittle someone&amp;rsquo;s points if you do not respect the mind behind them.&lt;/p&gt;
+
+&lt;p&gt;After all the arguing and discussion, once a decision becomes more or less evident as more right than wrong, you need to respect one another enough to accept the outcome and forget any harsh words or stares and put the issue behind you. Any kind of grudge held against one or the other that is not addressed can dismantle the entire company. Remember, at the beginning, you ARE the company.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/soroush-and-I.png&#34; style=&#34;width: 380px; height: 461px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;h5 id=&#34;pick-someone-who-is-as-motivated-and-driven-as-you-are-passionate-about-the-idea:2ba95b503351d773f81a48362e250646&#34;&gt;Pick someone who is as motivated and driven as you are, passionate about the idea&lt;/h5&gt;
+
+&lt;p&gt;Again, this is the next 3-5 years we are talking about here. You need to both have a sustained conviction about the importance of the underlying problem you are solving to make it. You might not have the right business model or plan but as long as you are solving a real problem or creating real value for someone, you will eventually figure out how to make the opportunity work.&lt;/p&gt;
+
+&lt;p&gt;Emotions in life are like a pendulum and sometimes you are feeling on top of the world and that nothing can stop you and other times, you feel under the weather and that the entire venture is about to fail. You need someone there to can act as a counter balance, over the moon when you aren&amp;rsquo;t and grounded when you&amp;rsquo;re a shooting star. Remember, most ventures fail internally before ever being truly tested by the market. As human beings, we are our first and largest obstacles.&lt;/p&gt;
+
+&lt;p&gt;Are you both willing to commit 6 years at the onset? You need to go with the worst case scenario when deciding what to do. Making this decision with the hope of selling in one year for millions wont help you get there, it might happen but the chances are slim.&lt;/p&gt;
+
+&lt;p&gt;You&amp;rsquo;re going to marry this person for the next couple years, so take your time with the decision&lt;/p&gt;
+
+&lt;p&gt;When excited about the prospects of a new idea, its easy to get so enthralled by it, you want to jump straight into building it! It happens every time. If you are starting the venture with a new or even existing partner, take the time to consider the match. Your business partner is the HARDEST thing to change about your business. The HARDEST. So don&amp;rsquo;t take the decision lightly. Think of it more like dating then just a business, this will seriously put you into the right mindset for choosing your partner.&lt;/p&gt;
+
+&lt;h5 id=&#34;pick-someone-who-compliments-you:2ba95b503351d773f81a48362e250646&#34;&gt;Pick someone who compliments you&lt;/h5&gt;
+
+&lt;p&gt;This might seem obvious and cliche but you need to think hard about what your strengths and weaknesses are. Get someone who is an opposite to you. For example, at WealthLift I was great at imagining new, useful features and pushing for their implementation. I was not however a perfectionist in the actual implementation. It was very helpful to have Soroush push me to perfect what I would come up with beyond what I initially thought was necessary.&lt;/p&gt;
+
+&lt;h4 id=&#34;2-understand-your-business:2ba95b503351d773f81a48362e250646&#34;&gt;2. Understand your business&lt;/h4&gt;
+
+&lt;h5 id=&#34;a-do-the-research:2ba95b503351d773f81a48362e250646&#34;&gt;A. Do the research&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;What is the Market opportunity?&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Realistically speaking, how much do people currently spend trying to solve this problem?&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;How high are the barriers to entry? Is there customer loyalty? Are there costs to the customer for switching?&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;What kind of a business model can you build around this problem? I am not saying you need to start this way but you need to be aware of the possibilities here.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Is each customer a one-time buyer or is there the possibility for recurring payments? This will dictate a vastly different per user value for your business.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Be sure not to mistaken the entire restaurant market with the market for italian food in Palo Alto.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Leverage the power of the internet with your idea. Build something that doesn&amp;rsquo;t rely on localisation or physicality. Yes, these are also competitive advantages if you can claim them however the alternative can easily be 5X or 50X an opportunity.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With WealthLift, we blinded ourselves by saying &amp;ldquo;This is a global opportunity&amp;rdquo; and &amp;ldquo;Affiliate deals from Brokerage houses is just our first revenue streams. There are infinite ways to monetize&amp;rdquo;. Neither of those statements were wrong yet&amp;hellip; Just because you have a global opportunity does not mean you wont have to start locally first. You will need to conquer one market before being able to take on the rest. Be sure that you can build a viable business out of one market and do not rely on the elusive size of the world to cover your bottom line. While there are always multiple ways to monetize a business, the preliminary method you choose will be crafted into your product and will be harder to supplant later on. One big problem with the one we chose was that it was a non-recurring revenue stream, forcing us to constantly look for new users without being able to focus at all on driving additional value from our existing user base.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Who are your competitors?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If no one is doing what you want to do, this should be a big red flag. Best is to take an existing industry and bring a large leap forward in the offering. Not only are you sure people are willing to use your product, you also have a strategic exit or at least another company you can acquire once you become the juggernaut in town.&lt;/p&gt;
+
+&lt;p&gt;Businesses always look vastly different on the inside then on the outside. One mistake we made with WealthLift was overestimate the amount of money our competitors were making. We thought because of their massive amounts of page views that they were surely making a lot of money. This was not the case. Talk to an insider, someone who knows the organisation to get a real sense of the competition.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Are they getting old, loaded down with bureaucracy and inefficiency? Are they unable to move fast? Are they taking advantage of the new ecosystem of the web and mobile? Times are changing quickly.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;How would you improve upon their offering in a way that is meaningful for the user?&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;What are your Competitive Advantages? How will you do it better?&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Always think in terms of the user. Will they find this improvement significant? Will they be willing to switch for it? Will they stay into the long term? Are you asking them to change their behavior or do you fit into things they already do? Changing behaviors significantly is very difficult.&lt;/p&gt;
+
+&lt;h5 id=&#34;b-don-t-lie-to-yourself:2ba95b503351d773f81a48362e250646&#34;&gt;B. Don&amp;rsquo;t lie to yourself&lt;/h5&gt;
+
+&lt;p&gt;This is probably the hardest thing to do.&lt;/p&gt;
+
+&lt;p&gt;No matter how amazing an idea seems, be sure to do yourself a huge favor and take your time understanding it in as much detail as possible. Question every assumption, they each will lead to further assumptions and if a core one is wrong, you will invest time and energy unnecessarily.&lt;/p&gt;
+
+&lt;h5 id=&#34;c-show-living-proof:2ba95b503351d773f81a48362e250646&#34;&gt;C. Show living proof&lt;/h5&gt;
+
+&lt;p&gt;Who can you point to as proof that your idea will work?&lt;/p&gt;
+
+&lt;p&gt;What are people already doing around you that could translate into usage of your product?&lt;/p&gt;
+
+&lt;p&gt;Look at people&amp;rsquo;s habits, look at the things they do and why to understand where an opportunity exists.&lt;/p&gt;
+
+&lt;h5 id=&#34;d-what-is-your-ideas-minimally-viable-product:2ba95b503351d773f81a48362e250646&#34;&gt;D. What is your ideas Minimally Viable Product?&lt;/h5&gt;
+
+&lt;p&gt;Important is for you to test out your idea as quickly as possible. Developing a product for years before putting it in front of someone is death. Isolate the key features that are most important to your value added offering and focus on those. This will also force you to make a much more concise product and remain focused.&lt;/p&gt;
+
+&lt;p&gt;It is always easier to add then to take away from a product. A concise product is also easier to explain and understand.&lt;/p&gt;
+
+&lt;p&gt;If your Minimally Viable Product doesn&amp;rsquo;t become an instant hit, don&amp;rsquo;t give up too quickly. The important part of launching a Min Vi is what you learn from it.&lt;/p&gt;
+
+&lt;p&gt;First build a Minimally Sticky Product, and then a Minimally Viral Product&lt;/p&gt;
+
+&lt;p&gt;Don&amp;rsquo;t forget distribution when building your Minimally Viable Product. Build virality into the product from the onset.&lt;/p&gt;
+
+&lt;h5 id=&#34;e-how-will-you-market-it:2ba95b503351d773f81a48362e250646&#34;&gt;E. How will you market it?&lt;/h5&gt;
+
+&lt;p&gt;There is no such thing as an intrinsically viral product. It must be built into the product.&lt;/p&gt;
+
+&lt;p&gt;Think long and hard about which channels you will use to promote your product and how you can succeed in each channel.&lt;/p&gt;
+
+&lt;p&gt;Marketing is real work and just as hard as programming so don&amp;rsquo;t let it be an after thought.&lt;/p&gt;
+
+&lt;h5 id=&#34;f-how-much-funding-do-you-need:2ba95b503351d773f81a48362e250646&#34;&gt;F. How much funding do you need?&lt;/h5&gt;
+
+&lt;p&gt;What I learned at WealthLift is two fold. One is that there will always be more unforeseeable costs then you at first think. Second, is that a lot of personal money is not a lot in terms of business money.&lt;/p&gt;
+
+&lt;p&gt;Bootstrap for as long as you can before raising a round. Ask friends and family for your first 10-30K to get you up and running with a live product to demo.&lt;/p&gt;
+
+&lt;p&gt;At this point raise a seed round that should last you your first year (100-150K). This should help you bring on board some people, market your product and become cash flow positive.&lt;/p&gt;
+
+&lt;p&gt;Only once you are making revenues and see the opportunity to accelerate your trajectory, raise from VC&amp;rsquo;s.&lt;/p&gt;
+
+&lt;p&gt;The best option to bootstrap forever. Raising from investors has been glorified by the press but it can be limiting and the source of many problems for a startup. If you are able to bootstrap your way to profitability, you might want to.&lt;/p&gt;
+
+&lt;h4 id=&#34;3-build-modular-clean-code:2ba95b503351d773f81a48362e250646&#34;&gt;3. Build modular, clean code&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Coding debt is a real concept. If you don&amp;rsquo;t pay the down payment, it&amp;rsquo;ll bite you in the ass later.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Build code you can re-use (libraries, hurray!)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Build code that you could give to a stranger to understand (you wont be writing code forever)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;WRITE DRY CODE: NEVER WRITE THE SAME CODE TWICE&lt;/p&gt;
+
+&lt;h4 id=&#34;4-distribution-is-everything:2ba95b503351d773f81a48362e250646&#34;&gt;4. Distribution is EVERYTHING&lt;/h4&gt;
+
+&lt;p&gt;Although the first hurdle you will face in starting you company is building the product, it is only the first battle of the war. After this, you need to attract people to your platform and that in itself is another battle.&lt;/p&gt;
+
+&lt;p&gt;Build distribution into the platform so that each user can attract another 10 users to the site. Let them invite their friends, broadcast their activity onto Facebook and Twitter. If you have a virality co-efficient of only 1.1, you will eventually see exponential growth.&lt;/p&gt;
+
+&lt;p&gt;Think long and hard about Programming Marketing / Growth Hacking (a sustainable, large scale marketing approach)&lt;/p&gt;
+
+&lt;h4 id=&#34;5-communicate-your-vision:2ba95b503351d773f81a48362e250646&#34;&gt;5. Communicate your Vision&lt;/h4&gt;
+
+&lt;p&gt;You need to be LOUD!&lt;/p&gt;
+
+&lt;p&gt;You need to communicate what you are doing with everyone inside your company and outside of it. Unexpected opportunities will spring up by telling people about what you are doing.&lt;/p&gt;
+
+&lt;p&gt;Get feedback, answer questions, be useful to others&lt;/p&gt;
+
+&lt;p&gt;Write a blog, answer quora/stackoverflow questions, become an expert in your industry.&lt;/p&gt;
+
+&lt;p&gt;Email reporters who write about your industry and give them a fresh perspective, additional insight. Seek to be helpful.&lt;/p&gt;
+
+&lt;p&gt;Remind your employees to think of the long term, to do things properly and make them feel like a part of something bigger then themselves.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building The InMoov Humanoid Robot</title>
+      <link>http://fabioberger.com/post/2014-09-28-building-the-inmoov-humanoid-robot/</link>
+      <pubDate>Sun, 28 Sep 2014 23:20:10 -0700</pubDate>
+      
+      <guid>http://fabioberger.com/post/2014-09-28-building-the-inmoov-humanoid-robot/</guid>
+      <description>
+
+&lt;h4 id=&#34;discovery:243ef681453295e5a5fa20082b0ee416&#34;&gt;Discovery&lt;/h4&gt;
+
+&lt;p&gt;After discovering upon Gael&amp;rsquo;s &lt;a href=&#34;http://www.inmoov.fr/&#34; title=&#34;InMoov Project&#34;&gt;InMoov Project&lt;/a&gt;, I decided to start building the InMoov Humanoid Robot. It&amp;rsquo;s been an extremely great learning experience and by far the largest hardware project I have ever undertaken. There were so many lessons learned from this project and so I wanted to share them here with you. Below is a video of the arm Soroush, Alex, Doug and I were able to build within 2 months.&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/6JMuzcy1dyk&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;lesson-1-3d-printing-is-still-craftsmanship:243ef681453295e5a5fa20082b0ee416&#34;&gt;Lesson 1: 3D printing is still craftsmanship&lt;/h4&gt;
+
+&lt;p&gt;Despite being able to download the exact files of each individual part of the robotic arm, every persons printer has slightly different levels of precision when printing.  Because of this, it still took quite a bit of filing and adjusting to get the parts to work together perfectly. Dealing with printer idiosyncrasies was another point of fine tuning and adjustment that turned what I thought would feel like assembling legos into more like handcrafting a violin.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/alex-assembly.png&#34; style=&#34;width: 380px; height: 461px;&#34;/&gt;
+Alex Helping Out On Hand Assembly
+&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/hand-pieces.jpg&#34; style=&#34;width: 380px; height: 461px;&#34;/&gt;
+Each piece of the hand needed filing
+&lt;/p&gt;
+
+&lt;h4 id=&#34;lesson-2-each-additional-moving-part-is-another-potential-point-of-failure:243ef681453295e5a5fa20082b0ee416&#34;&gt;Lesson 2: Each additional moving part is another potential point of failure&lt;/h4&gt;
+
+&lt;p&gt;As the complexity of the arm grew and we were hooking up additional servos, gears and potentiometers, so did the number of potential points of failure. Unlike writing code, we couldn&amp;rsquo;t assume a completed part of our project wouldn&amp;rsquo;t change without us changing it, the physical world had other plans in mind. Multiple times, a piece would break, a potentiometer would stop working or a motor would get disconnected and what followed was a painful process of figuring what had gone wrong and who the culprit was.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/forearm-open.jpg&#34; style=&#34;width: 380px; height: 507px;&#34;/&gt;
+Servo Cord System for Finger Articulation
+&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/soroush-programming-arm.jpg&#34; style=&#34;width: 380px; height: 507px;&#34;/&gt;
+Soroush debugging forearm servos
+&lt;/p&gt;
+
+&lt;h4 id=&#34;lesson-3-if-they-say-use-abs-use-abs:243ef681453295e5a5fa20082b0ee416&#34;&gt;Lesson 3: If they say use ABS, use ABS&lt;/h4&gt;
+
+&lt;p&gt;Gael specified that the InMoov is best printed using ABS plastic. The reasons are that ABS is stronger and less brittle when compared with PLA. Since I was a proud owner of a Marketbot Replicator 2, ABS proved difficult to print. I decided to go ahead with PLA and experienced first hand how quickly small gears loose their teeth when under stress. Not only this but pieces cracking under the strain became a regular occurrence.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/gear.jpg&#34; style=&#34;width: 500px; height: 447px;&#34;/&gt;
+This bugger is tiny and got stripped 5 times
+&lt;/p&gt;
+
+&lt;h4 id=&#34;lesson-4-hardware-is-still-expensive:243ef681453295e5a5fa20082b0ee416&#34;&gt;Lesson 4: Hardware is still expensive&lt;/h4&gt;
+
+&lt;p&gt;When we started off on this endeavour, I thought I would be able to build this arm for around $200-300, once all the parts (and replacement parts) were bought, not to say anything of the tools we didn&amp;rsquo;t know we needed, the cost of the arm was closer to $500. Because of this, you want to make it so that every piece you assemble can easily be re-used for another purpose. Supergluing servos to your 3D printed parts is probably not a great idea. Your prototype might only be version 1 and it would be great to re-use all those expensive components for version 2.&lt;/p&gt;
+
+&lt;p&gt;I hope these lessons learned come in handy as you embark on a 3D printing, hardware project of your own! If you do end up building something, tell me about it!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Open Source Humanoid Robotics</title>
+      <link>http://fabioberger.com/post/2013-12-27-Open-Source-Humanoid-Robotics/</link>
+      <pubDate>Fri, 27 Dec 2013 23:20:10 -0700</pubDate>
+      
+      <guid>http://fabioberger.com/post/2013-12-27-Open-Source-Humanoid-Robotics/</guid>
+      <description>
+
+&lt;h4 id=&#34;birth:a8e9b448967c2f9f16328f54613a27b8&#34;&gt;Birth&lt;/h4&gt;
+
+&lt;p&gt;Until this point in time, the development of humanoid robotics has taken place in the R&amp;amp;D centers of large organizations. The reason for this has been the extraordinary cost of the hardware, software and collaboration tools at their disposal. Let&amp;rsquo;s face it, a humanoid robot is an incredibly complex piece of engineering. Every joint, every muscle, not to mention the myriad of cognitive functions that are to be reproduced in a semi-intelligible robot are overwhelming. In order to tackle this challenge, I believe the only way to successfully do so is to tap into the ingenuity of the masses, to enable mass collaboration like that which has never before been possible.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/inmoov.png&#34; style=&#34;width: 500px; height: 335px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We are about to enter into an era of unprecedented collaboration. The open source movement which began in the obscure corners of the internet, on IRC channels and email-lists is getting exponentially better at enabling people to find interesting projects, contribute with minimal additional effort and most importantly, is no longer limited to software.&lt;/p&gt;
+
+&lt;h5 id=&#34;the-enablers-of-open-source:a8e9b448967c2f9f16328f54613a27b8&#34;&gt;The Enablers of Open Source&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Github (Software)&lt;/li&gt;
+&lt;li&gt;Circuits.io &amp;amp; CircuitLab (Hardware &amp;amp; Circuit Printing)&lt;/li&gt;
+&lt;li&gt;Thingiverse &amp;amp; Cubehero (Physical Design)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As is noticable about this list, we have now covered all the broad bases needed for an open-source humanoid robotics project to take hold. With this new approach to building a humanoid robot, we can take unprecedented advantage of budding roboticists from around the globe to help contribute to a singular effort. Are you a 3D parts designer? Fantastic, we have limbs that need to be improved in order to increase range of motion and studiness. Are you a hardware hacker? Great! We need to choose a motor capable of holding the robots weight during biped locomotion. Are you a software guy? Awesome, you&amp;rsquo;ll be right at home, building the layers of abstraction on top of the hardware to make this robot come to life.&lt;/p&gt;
+
+&lt;h4 id=&#34;an-analogy-the-reprap-project:a8e9b448967c2f9f16328f54613a27b8&#34;&gt;An Analogy: The RepRap Project&lt;/h4&gt;
+
+&lt;p&gt;The RepRap project was founded in 2005 with the mission of building an entirely open-source 3D Printer. Because of its open nature, the RepRap project soon began finding collaborators beyond its research lab at Bath University, and it&amp;rsquo;s 3D printers received incremental improvements from collaborators across the globe.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/reprap.jpg&#34; style=&#34;width: 500px; height: 335px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;4 years after it&amp;rsquo;s founding, a little known start-up called MakerBot incorporated with the goal of making a commercially available 3D printer. One of its founders, &lt;a href=&#34;http://www.zachhoeken.com/about&#34; title=&#34;Zach Smith&#34;&gt;Zach Smith&lt;/a&gt; was an early member and contributor of the RepRap project. Originally a web developer in New York, Smith got interested in 3D printing and decided to join NYC Resistor, a NY hacker space and began learning about hardware. Less then a year later, he was approached by Brett Pettis and began working on MakerBot, a company whose designs were completely open source at the time and based largely on the RepRap project. Makertbot is now one of the largest 3D printer manufacturers and was recently acquired by Stratys for $403 million in stock. Both the success of the RepRap project, an open-source hardware and software initiative as well as the commercial opportunities that can ensue from an open-source foundation have now been shown.&lt;/p&gt;
+
+&lt;h4 id=&#34;the-opportunity:a8e9b448967c2f9f16328f54613a27b8&#34;&gt;The Opportunity&lt;/h4&gt;
+
+&lt;p&gt;With the surge of 3D printers in circulation, especially amongst makers and hackers, &lt;a href=&#34;https://plus.google.com/109466702837468444192/posts&#34; title=&#34;Gael Langevin&#34;&gt;Gael Langevin&lt;/a&gt; put his straight to work at building a robotic hand. Once he had completed that, he just kept going, designing the necessary scaffoldings and hardware more two arms, a head and a torso in what became the &lt;a href=&#34;http://www.inmoov.fr/&#34; title=&#34;InMoov Project&#34;&gt;InMoov Project&lt;/a&gt;. The project is completely open source and currently has 50 known reproductions of the Robot out in the world. Together with his collaborators, Gael is continuing to build this robot both in terms of its design, hardware and software with collaborators across the globe.&lt;/p&gt;
+
+&lt;p&gt;Just like the early days of the RepRap project, InMoov is still building the first version of its humanoid robot. A commercial product based on it&amp;rsquo;s work has not yet happened, let alone kits for self-assembly by enthusiasts. It is the very early days of a project that can eventually lead to a $3000-5000 dollar humanoid robot. As an open, hackable platform, its potential is endless. Once the physical body has been built, with its skeleton and motorized parts, a software operating system to control it will be needed. This piece of software, in order to be extremely powerful and flexible will need layers of abstraction above the hardware in order to enable the millions of purely software developers who currently build apps for smart phone and tablets, to shift their efforts towards the opportunities presented by a humanoid robotics platform. Instead of accessing GPS, a gyroscope and a camera, they will have access to an entire new array of hardware compenents. Hands, arms, legs, auditory and visual input that can inform programmable physical behavior. The opportunities will be staggering.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/ipad_control.png&#34; style=&#34;width: 500px; height: 335px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;I am very excited about the future of open source hardware and it&amp;rsquo;s potential to turn our world on its head. If you are too, please reach out!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Controlling LED Brightness With a Grove Ultrasound Sensor and Raspberry Pi</title>
+      <link>http://fabioberger.com/post/2013-12-21-controlling-led-brightness-with-a-grove-ultrasound-sensor-and-raspberry-pi/</link>
+      <pubDate>Sat, 21 Dec 2013 23:20:10 -0700</pubDate>
+      
+      <guid>http://fabioberger.com/post/2013-12-21-controlling-led-brightness-with-a-grove-ultrasound-sensor-and-raspberry-pi/</guid>
+      <description>
+
+&lt;p&gt;I recently started hacking my Raspberry Pi, and as someone who feels most at home in software, I was delighted to find myself controlling hardware components over an SSH connection and having the entirety of the web at my disposal.&lt;/p&gt;
+
+&lt;p&gt;I decided to build a simple project that would use a Grove Ultrasound sensor I had bought. I decided on controlling the brightness of an LED by moving my hand up and down above the ultrasound sensor. To do this, I started with the &lt;a href=&#34;https://github.com/yexiaobo-seeedstudio/Grove-RaspberryPi&#34; title=&#34;Grove Ultrasound sensor github&#34;&gt;Grove Ultrasound Sensor python code&lt;/a&gt; off Github as well as a &lt;a href=&#34;http://marks-space.com/2013/09/23/software-pwm-on-a-raspberry-pi/ &amp;quot;software PWM (pulse width modulation&#34;&gt;software PWM (pulse width modulation) library&lt;/a&gt; library&amp;rdquo;) for Raspberry Pi GPIO pins by Mark Williams.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/raspberrypi_ultrasound_brightness.png&#34; style=&#34;width: 500px; height: 335px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;h4 id=&#34;getting-started:f59138679457dabf8623e69c1227c012&#34;&gt;Getting started&lt;/h4&gt;
+
+&lt;p&gt;For this project you will need:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1 Raspberry Pi&lt;/li&gt;
+&lt;li&gt;1 LED&lt;/li&gt;
+&lt;li&gt;1 100 Ohm resistor&lt;/li&gt;
+&lt;li&gt;1 Grove Ultrasound Sensor&lt;/li&gt;
+&lt;li&gt;5 Male-to-Female Jumper Wires&lt;/li&gt;
+&lt;li&gt;1 Breadboard&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;step-1:f59138679457dabf8623e69c1227c012&#34;&gt;Step 1.&lt;/h4&gt;
+
+&lt;p&gt;Build a simple LED circuit on a breadboard with the 100 Ohm resistor.  Once you have done this, hook up the ground and power of the breadboard to the ground pin and GPIO pin 7 of the Raspberry Pi respectivley. The pins below are labeled using the orientation of the Raspberry Pi in the image above.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/raspberrypi_gpio_pins.png&#34; style=&#34;width: 500px; height: 335px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;h4 id=&#34;step-2:f59138679457dabf8623e69c1227c012&#34;&gt;Step 2.&lt;/h4&gt;
+
+&lt;p&gt;Hook up the Grove Ultrasound sensor connectors with the following labels:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;VCC to the 5V pin on the Raspberry Pi&lt;/li&gt;
+&lt;li&gt;GND to the ground line on the breadboard&lt;/li&gt;
+&lt;li&gt;SIG to Raspberry Pi GPIO 11&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;NC remains unconnected&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;p align=&#34;center&#34;&gt;
+ &lt;img src=&#34;http://fabioberger.com/imgs/grove_sensor.png&#34; style=&#34;width: 400px;&#34;/&gt;
+ &lt;/p&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;step-3:f59138679457dabf8623e69c1227c012&#34;&gt;Step 3.&lt;/h4&gt;
+
+&lt;p&gt;Now we need to install Mark Williams PWM software on our Raspberry Pi.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pi@raspberrypi ~ $ git clone https://github.com/mwilliams03/pi-blaster.git
+pi@raspberrypi ~ $ cd pi-blaster
+pi@raspberrypi ~ $ make pi-blaster
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once we&amp;rsquo;ve done this, we need to enable PWM on GPIO pin 7 in order to control the LED brightness. We do this by specifying pin 7 as an argument in the following call:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pi@raspberrypi ~ $ sudo ./pi-blaster/pi-blaster 7
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As Mark explains, this starts the pi blaster as a background job. If you ever want to stop it from running, you run the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pi@raspberrypi ~ $ sudo killall pi-blaster
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;step-4:f59138679457dabf8623e69c1227c012&#34;&gt;Step 4&lt;/h4&gt;
+
+&lt;p&gt;Now we need to grab the code I wrote based on the Grove Ultrasound Sensor python script. I&amp;rsquo;ve modified the script to adjust the LED brightness based on the distance measured by the sensor. The closer ones hand is, the dimmer the LED becomes. In order to control the brightness of the LED, we need to write to /dev/pi-blaster specifying the pin and the brightness between 0 (off) and 1 (full brightness).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pi@raspberrypi ~ $ git clone git@github.com:fabioberger/raspberrypi-ultrasound-led-brightness.git
+pi@raspberrypi ~ $ cd ./raspberrypi-ultrasound-led-brightness
+pi@raspberrypi ~ $ sudo python main.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Given that the pi-blaster was setup in the previous step, this should begin the measurements by the ultrasound sensor. Move your hand up and down above the sensor and watch the LED brightness adjust!&lt;/p&gt;
+
+&lt;p&gt;I hope you enjoyed this walk through!&lt;/p&gt;
+
+&lt;p&gt;Questions? Comments? Always happy to connect.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Cube: Experiments in building a startup community</title>
+      <link>http://fabioberger.com/post/2013-12-16-the-cube-an-experiment-in-building-an-entrepreneurial-community/</link>
+      <pubDate>Mon, 16 Dec 2013 23:20:10 -0700</pubDate>
+      
+      <guid>http://fabioberger.com/post/2013-12-16-the-cube-an-experiment-in-building-an-entrepreneurial-community/</guid>
+      <description>
+
+&lt;h4 id=&#34;duke-university-s-selective-living-group-for-entrepreneurs:fa8db304a887be4205437f608fe507af&#34;&gt;Duke University&amp;rsquo;s Selective Living Group for Entrepreneurs&lt;/h4&gt;
+
+&lt;p&gt;Back when I was a freshman at Duke, I took the leap of working on my first startup. It was hard and I quickly realized I was swimming in the deep end. I decided to try and find other students who had started companies, so that I could learn as much from them without having to make all the mistakes myself. They were hard to find. Later that year, I stumbled upon a blog post by then Sophomore Sidney Primas where he wrote about his vision for an E-House on Duke&amp;rsquo;s campus, dedicated to building a community of entrepreneurs. I decided to get in touch with Sidney and together with a couple of friends we started what is now The Cube on Duke&amp;rsquo;s campus. As a second semester senior, the time is ripe to reflect on the 4 years invested in building The Cube into the thriving entrepreneurial community it is today.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/incube.jpg&#34; alt=&#34;Drawing&#34; style=&#34;width: 500px; height: 335px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;h4 id=&#34;people-are-everything:fa8db304a887be4205437f608fe507af&#34;&gt;People are Everything&lt;/h4&gt;
+
+&lt;p&gt;When we began recruiting our first class we had no idea where we would find our first 15 members. We were able to recruit my then co-founder but after that small win,  the two other founders we knew on campus turned us down as they were not convinced of the value we would bring to them, instead of seeing the opportunity and impact they could have on others. We therefore had to switch gears towards pitching the general student body about the merits of startups and why they would want to be a part of The Cube.&lt;/p&gt;
+
+&lt;p&gt;Many events later, we had convinced a small but significant group of apply. After interviewing them all, we decided to take almost everyone who had applied. Some of those who applied had an idea and were on their way to building their startups but by and large these were students intruiged with entrepreneurship. Some would later blossom into incredible founders while most would eventually drop from The Cube realizing that startups was not for them.&lt;/p&gt;
+
+&lt;p&gt;Over the last 4 years, The Cube has had an attrition rate fo 80% and I am constantly reminded of the fact that startups are not for everyone. Some of our members were too enamored with academia to put themselves through the load of grunt work every startup requires. Others we later found out saw The Cube as merely resume fluff that would make them look more &amp;ldquo;entrepreneurial&amp;rdquo; for employers (Yuck!). And still others just didn&amp;rsquo;t feel ready to take the leap, throw their weight behind their idea and give it a go. Instead of trying to resist this, I have found that you cannot convince someone to be a founder.&lt;/p&gt;
+
+&lt;p&gt;As a selective living group, our greatest asset as a group are our members. This has reminded me again that every organization is only as great as the people who make it up. This cannot be understated. We have therefore evolved our recruiting strategy into a very selective process that tries to give us a wholistic view of a person prior to membership. We want to get a sense of a persons ability to achieve, willingness to learn and personality. These are the three dimensions for a person that will inform us whether they will not only a great founder but a great InCuber. InCubers are a subset of founders, they are founders who are willing to help, mentor and collaborate with other founders for the betterment of everyone in the entrepreneurial community.&lt;/p&gt;
+
+&lt;h4 id=&#34;know-your-mission:fa8db304a887be4205437f608fe507af&#34;&gt;Know your mission&lt;/h4&gt;
+
+&lt;p&gt;At The Cube we have been constantly defining our mission as an organization. Are we a social group for entrepreneurs, an incubator, an aggregator of startup resources, all of the above? It has taken us a while to figure this out but now that it has taken shape, it has given us a laser focus that can guide all our activities.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The Cube is a community of student entrepreneurs who support one another through mentorship, advice and friendship.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Instead of replicating many of the startup resources available online or by Duke, The Cube has to focus on perhaps the most important resource for a founder: their support network. Startups are hard and it&amp;rsquo;s when things are not working out or when you&amp;rsquo;re feeling down that you need the most support. Having role models, others you can go to who have gone through what you are experiencing, offer useful advice and be there for you as a friend is priceless. This year I had the immense pleasure of living with Devin Solanki, founder of &lt;a href=&#34;http://powerhouseprotein.com/&#34; title=&#34;Powerhouse&#34;&gt;PowerHouse Protein&lt;/a&gt;. Not only have we become great friends, he has taught me an incredibe amount about manufacturing and selling physical products, while in return I helped introduce him to e-commerce and online ads as a way to boost his sales. It is these kinds of exchanges that exemplify The Cube&amp;rsquo;s mission.&lt;/p&gt;
+
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://fabioberger.com/imgs/pool_party.png&#34; style=&#34;width: 500px; height: 335px;&#34;/&gt;
+&lt;/p&gt;
+
+&lt;h4 id=&#34;personal-relationships-are-paramount:fa8db304a887be4205437f608fe507af&#34;&gt;Personal relationships are paramount&lt;/h4&gt;
+
+&lt;p&gt;When we first began, we did not realize how important it was for members of The Cube to be great friends first a foremost. In order to become invested in one anothers startups and truly want one another to succeed you first have to spend a lot of time with a person and become invested in their well being. Once we had realized that, we began to focus much more on organizing social events, getting members to party together and make The Cube not only a formal commitment you have decided to partake in but also a group of friends you hang out with on friday night.&lt;/p&gt;
+
+&lt;p&gt;The effects have been dramatic. Not only do members now know one another more intimately and therefore constantly have an eye out for opportunities, individuals and information that could help the startups of others, there has been a much greater involvement from members in the group. Members feel emotionally attached to the group and the friendships that hold it together and this is a solid foundation that will allow The Cube to flourish.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
