@@ -96,27 +96,27 @@ Formula editor
 
 &lt;h3 id=&#34;introduction:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;Introduction&lt;/h3&gt;
 
-&lt;p&gt;Welcome to the wonderful world of programming. In this intro guide, I want to help you get up to speed with some of the fundamentals of what &amp;lsquo;programming&amp;rsquo; actually means and how you can get started with learning this very powerful tool. Computers can empower you to build systems that work while you sleep, send information around the globe in milliseconds and calculate really complex equations in the blink of an eye. Let&amp;rsquo;s get you some of these magic powers so that you can apply them to solve the problems you care about.&lt;/p&gt;
+&lt;p&gt;Welcome to the wonderful world of programming. In this intro, I want to help you get up to speed with some of the fundamentals to what &amp;lsquo;programming&amp;rsquo; actually means and how you can get started with learning this very powerful tool. Computers can empower you to build systems that work while you sleep, send information around the globe in milliseconds and calculate really complex equations in the blink of an eye. Let&amp;rsquo;s get you some of these magic powers so that you can apply them to the problems you care about.&lt;/p&gt;
 
 &lt;h3 id=&#34;everything-is-a-file:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;Everything is a file&lt;/h3&gt;
 
-&lt;p&gt;Computers are simply a collection of files. Some files, such as Microsoft Word files, contain the words we humans write. They also contain the instructions on how to display those words on the screen. What to &lt;code&gt;bold&lt;/code&gt;, &lt;code&gt;underline&lt;/code&gt; and what to make size font &lt;code&gt;24&lt;/code&gt; and what size font &lt;code&gt;28&lt;/code&gt;. Similarly, every computer program is written in files, using characters found on your keyboard. Look down at your keyboard now. Do you see all those weird keys on the perimeter of your keyboard that you hardly use? (i.e &lt;code&gt;#, %, &amp;amp;, *, [, ], |&lt;/code&gt;) Lots of those are used when writing computer programs and have been assigned specific meanings in computer languages. For example, the character &lt;code&gt;!&lt;/code&gt; has been assigned the mathematical operation of negation. If I were to write: &lt;code&gt;isSheGerman = !true&lt;/code&gt; that would mean the same as &lt;code&gt;isSheGerman = false&lt;/code&gt;. Not true is false. But we are getting a little carried away here, what is important to realize is that computer programs are not written as 1001101001000101011 by programers but rather are written in english looking words into files. You can then tell the computer to run the file and execute the instructions within them.&lt;/p&gt;
+&lt;p&gt;Computers are simply a collection of files. Some files, such as Microsoft Word files, contain the words we humans write. They also contain the instructions on how to display those words on the screen. What to &lt;code&gt;bold&lt;/code&gt;, &lt;code&gt;underline&lt;/code&gt; and what to make font size &lt;code&gt;24&lt;/code&gt; and what font size &lt;code&gt;28&lt;/code&gt;. Similarly, every computer program is written in files, using characters found on your keyboard. Look down at your keyboard now. Do you see all those weird keys on the perimeter of your keyboard that you hardly use? (i.e &lt;code&gt;#, %, &amp;amp;, *, [, ], |&lt;/code&gt;) Lots of those are used when writing computer programs and they have been assigned specific meanings in computer languages. For example, the character &lt;code&gt;!&lt;/code&gt; has been assigned the mathematical operation of negation. If I were to write: &lt;code&gt;isSheGerman = !true&lt;/code&gt; that would mean the same as &lt;code&gt;isSheGerman = false&lt;/code&gt;. Not true is false. But we are getting a little carried away here, what is important to realize is that computer programs are not written as 1001101001000101011 by programers but rather are written in english looking words in files. You can then tell the computer to run the file and execute the instructions within them.&lt;/p&gt;
 
 &lt;h3 id=&#34;a-program-is-a-fancy-word-for-recipe:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;A &lt;code&gt;program&lt;/code&gt; is a fancy word for &lt;code&gt;recipe&lt;/code&gt;&lt;/h3&gt;
 
-&lt;p&gt;Every program is simply a set of instructions that the computer reads from top to bottom. They are simply a recipe of what to do and when to do it. Let&amp;rsquo;s write out a simple recipe for making bread and then see what the equivalent computer program would look like:&lt;/p&gt;
+&lt;p&gt;Every program is a set of instructions that the computer reads from top to bottom. They are simply a recipe of what to do and when to do it. Let&amp;rsquo;s write out a simple recipe for making bread and then see what the equivalent computer program would look like:&lt;/p&gt;
 
 &lt;h4 id=&#34;recipe:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;Recipe&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;- Get a large bowl
 - Add yeast and warm water to the bowl
--  Add 3 tablespoons of sugar
--  Add 1 tablespoon of salt
--  Add 2 tablespoons canola oil and 3 cups flour
--  Beat 30 times
--  knead until smooth and elastic
--  Cover and let rise for 1 and a 1/2 hours
--  Bake at 375° until golden brown
+- Add 3 tablespoons of sugar
+- Add 1 tablespoon of salt
+- Add 2 tablespoons canola oil and 3 cups flour
+- Beat 30 times
+- knead until smooth and elastic
+- Cover and let rise for 1 and a 1/2 hours
+- Bake at 375° until golden brown
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;program:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;Program&lt;/h4&gt;
@@ -136,7 +136,7 @@ while(!isWellKneaded AND !isElastic) {
 setTimeout(bakeAt375DegreesUntilBrown(largeBowl), OneAndAHalfHours);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This is what you are writing when you are &lt;code&gt;programming&lt;/code&gt;. Just like a human following a recipe, the computer will read these instructions written in a &lt;code&gt;language&lt;/code&gt; it understands and will follow each instruction sequentially. This example is in javascript, which most websites are written in, but a lot of the concepts you learn in one language are the same in every other language.&lt;/p&gt;
+&lt;p&gt;This is what you are writing when you are &lt;code&gt;programming&lt;/code&gt;. Just like a human following a recipe, the computer will read these instructions written in a &lt;code&gt;language&lt;/code&gt; it understands and will follow each instruction sequentially. This example is in javascript, which most websites are written in, but a lot of the concepts you learn in one language are the same in every other programming language.&lt;/p&gt;
 
 &lt;h3 id=&#34;3-basic-concepts-found-in-all-programming-languages:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;3 Basic Concepts Found In All Programming Languages&lt;/h3&gt;
 
@@ -151,7 +151,7 @@ y = 5
 z = 2*x + y
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Therefore the value of z is 25. Similarly, you can assign &lt;code&gt;values&lt;/code&gt; to &lt;code&gt;variables&lt;/code&gt; in programming. A value can be a number, but it can also be text or a collection. Here are some examples:&lt;/p&gt;
+&lt;p&gt;Therefore the value of z is 25. Similarly, you can assign &lt;code&gt;values&lt;/code&gt; to &lt;code&gt;variables&lt;/code&gt; in programming. A value can be a number, but it can also be text (what programmers call a &amp;ldquo;string&amp;rdquo;) or a collection. Here are some examples:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var x = 10;
 var y = 5;
@@ -203,9 +203,9 @@ for (guest of guests) {
 
 &lt;h3 id=&#34;conclusion-to-introduction:3273e9d6762e4c2ede6e5a3fb8ab368a&#34;&gt;Conclusion to Introduction&lt;/h3&gt;
 
-&lt;p&gt;I hope this very short introduction has given you the sense that when you pop open the hood of your computer and get a glimpse of how they work, that some of the mystery that surrounds them disappears. Programming is an exercise that requires wit, problem solving and creativity. It also requires a lot of patience and a tolerance for making mistakes. The reward however is mastering a tool that can be used in every single field of human endeavor. Stay tuned for more tidbit lessons and check out some of these more comprehensive online resources to continue your journey into the world of programming! ;)&lt;/p&gt;
+&lt;p&gt;I hope this very short introduction has given you the sense that when you pop open the hood of your computer and get a glimpse of how it works, that some of the mystery that surrounds them disappears. Programming is an exercise that requires wit, problem solving and creativity. It also requires a lot of patience and a tolerance for making mistakes. The reward however is mastering a tool that can be used in every single field of human endeavor. Stay tuned for more tidbit lessons and check out some of these more comprehensive online resources to continue your journey into the world of programming! ;)&lt;/p&gt;
 
-&lt;p&gt;*Last piece of advice: When you start learning about programming, many things will not make sense the first time you see/read them. Don&amp;rsquo;t get discouraged, just keep reading, even if you don&amp;rsquo;t understand and somehow you brain will eventually start to make sense of it!&lt;/p&gt;
+&lt;p&gt;*Last piece of advice: When you start learning about programming, many things will not make sense the first time you see/read them. Don&amp;rsquo;t get discouraged, just keep reading, even if you don&amp;rsquo;t understand, somehow your brain will eventually start to make sense of it!&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://pine.fm/LearnToProgram/&#34;&gt;https://pine.fm/LearnToProgram/&lt;/a&gt;&lt;/li&gt;
