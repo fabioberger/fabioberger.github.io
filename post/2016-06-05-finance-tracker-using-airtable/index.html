@@ -65,7 +65,7 @@
 
 <p>Since I started owning crypto-currencies, I&rsquo;ve had a harder and harder time keeping track of my finances. With my modest fortune spread between multiple bank accounts, ether and bitcoin addresses, I needed a better way to know my total net worth and what the relative values were of my assets. I decided to use <a href="https://airtable.com">Airtable</a> and its extensive API to build a solution that could do just that.</p>
 
-<p>In this post I will show you how you too can use Airtable and a simple web server <a href="https://github.com/fabioberger/finance_tracker">finance_tracker_server</a> to keep track of your finances. It will update your bank balances, pull in the latest crypto and fiat currency exchange prices in order to give you up-to-the-minute profit &amp; loss calculations, your total net worth, and where you lie on the crypto/fiat split. I will walk you through customizing the <a href="https://airtable.com/shrA09QDhlYHBPMB3">Finance Tracker</a> Airtable Base I&rsquo;ve published, and how to set up the server that will keep it up to date.</p>
+<p>In this post I will show you how you too can use Airtable and a simple web server <a href="https://github.com/fabioberger/finance_tracker">finance-tracker-server</a> to keep track of your finances. It will update your bank balances, pull in the latest crypto and fiat currency exchange prices in order to give you up-to-the-minute profit &amp; loss calculations, your total net worth, and where you lie on the crypto/fiat split. I will walk you through customizing the <a href="https://airtable.com/shrA09QDhlYHBPMB3">Finance Tracker</a> Airtable Base I&rsquo;ve published, and how to set up the server that will keep it up to date.</p>
 
 <p align="center">
 <iframe class="airtable-embed" src="https://airtable.com/embed/shrA09QDhlYHBPMB3?backgroundColor=red" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
@@ -81,7 +81,7 @@ Embedded version of the Finance Tracker Base
 Screenshot of the Currencies Table
 </p>
 
-<p>The simple web server will update the currency exchanges you care about in the &ldquo;Currencies&rdquo; table. Since every asset is denominated in a currency, these updates will propogate to the &ldquo;Assets&rdquo; table, updating the USD value of your assets given the new exchange rates. In addition to this, it will also update your bank balances directly in the &ldquo;Assets&rdquo; table so that any expenses you&rsquo;ve made since the last update will be reflected here.</p>
+<p>The <a href="https://github.com/fabioberger/finance_tracker">finance-tracker-server</a> will update the currency exchanges you care about in the &ldquo;Currencies&rdquo; table. Since every asset is denominated in a currency, these updates will propogate to the &ldquo;Assets&rdquo; table, updating the USD value of your assets given the new exchange rates. In addition to this, it will also update your bank balances directly in the &ldquo;Assets&rdquo; table so that any expenses you&rsquo;ve made since the last update will be reflected here.</p>
 
 <h3 id="getting-started:235c5519861362eeefa2a35b73b78e7a">Getting Started</h3>
 
@@ -120,7 +120,7 @@ Formula editor
 
 <h3 id="setting-up-the-server:235c5519861362eeefa2a35b73b78e7a">Setting up the server</h3>
 
-<p>Now that you&rsquo;ve listed all of your assets, it&rsquo;s time to install and configure the server that&rsquo;s going to update the currency exchange rates and update your bank balances whenever you want. To do this, go ahead and clone the <a href="https://github.com/fabioberger/finance_tracker">finance_tracker project on Github</a> and follow the detailed README instructions on how to customize which currencies you&rsquo;d like updated (both crypto and fiat) as well as how to pull in your bank account balances into Airtable.</p>
+<p>Now that you&rsquo;ve listed all of your assets, it&rsquo;s time to install and configure the server that&rsquo;s going to update the currency exchange rates and update your bank balances whenever you want. To do this, go ahead and clone the <a href="https://github.com/fabioberger/finance_tracker">finance-tracker-server project on Github</a> and follow the detailed README instructions on how to customize which currencies you&rsquo;d like updated (both crypto and fiat) as well as how to pull in your bank account balances into Airtable.</p>
 
 <p>After you have configured and successfully updated your Finance Tracker app, continue from over here.</p>
 
