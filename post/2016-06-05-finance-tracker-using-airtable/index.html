@@ -33,6 +33,15 @@
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300|Montserrat:700' rel='stylesheet' type='text/css'>
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-46489056-1', 'auto');
+          ga('send', 'pageview');
+        </script>
     </head>
 
 <body>
@@ -54,55 +63,70 @@
     <section class="post-content">
         
 
-<p>Since I started owning crypto-currencies, I&rsquo;ve had a harder and harder time keeping track of my finances. With my modest fortune spread between multiple bank accounts, ether and bitcoin addresses, I needed a better way to know my total net worth and how each of my assets was performing. I decided to use <a href="https://airtable.com">Airtable</a> and it&rsquo;s extensive API to build a single place where I could do just that.</p>
+<p>Since I started owning crypto-currencies, I&rsquo;ve had a harder and harder time keeping track of my finances. With my modest fortune spread between multiple bank accounts, ether and bitcoin addresses, I needed a better way to know my total net worth and what the relative values were of my assets. I decided to use <a href="https://airtable.com">Airtable</a> and its extensive API to build a solution that could do just that.</p>
 
-<p>In this post I will show you how you too can use Airtable and a <a href="https://github.com/fabioberger/finance_tracker">simple web server</a> to keep track of your finances. It will update your bank balances, pull in the latest crypto and fiat currency exchange prices in order to give you up-to-the-minute profit &amp; loss calculations, total net worth, and where you lie on the crypto/fiat split. I will walk you through customizing the <a href="https://airtable.com/shrA09QDhlYHBPMB3">Finance Tracker</a> Airtable Base I&rsquo;ve made, and how to set up the server that keeps it up to date.</p>
+<p>In this post I will show you how you too can use Airtable and a simple web server <a href="https://github.com/fabioberger/finance_tracker">finance_tracker_server</a> to keep track of your finances. It will update your bank balances, pull in the latest crypto and fiat currency exchange prices in order to give you up-to-the-minute profit &amp; loss calculations, your total net worth, and where you lie on the crypto/fiat split. I will walk you through customizing the <a href="https://airtable.com/shrA09QDhlYHBPMB3">Finance Tracker</a> Airtable Base I&rsquo;ve published, and how to set up the server that will keep it up to date.</p>
 
+<p align="center">
 <iframe class="airtable-embed" src="https://airtable.com/embed/shrA09QDhlYHBPMB3?backgroundColor=red" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+Embedded version of the Finance Tracker Base
+</p>
 
-<p>The Finance Tracker base is made up of two tables. The &ldquo;Assets&rdquo; table has a record for each of your assets, be they a bank balance or a crypto-currency you keep in an address. The second table keeps track of the &ldquo;Currencies&rdquo; (both crypto and fiat) and their relative exchange prices in USD.</p>
+<p>The Finance Tracker base is made up of two tables. The &ldquo;Assets&rdquo; table has a record for each of your assets, be they bank balances or crypto-currencies you keep in an offline wallet/exchange. It reports how each asset is performing in US Dollar terms (although with the flexibility of Airtable, this could to be any currency you want).</p>
 
-<p><img src="/imgs/finance_tracker_currencies_screenshot.png" alt="Finance Tracker Screenshot 2" /></p>
+<p>The second table keeps track of the &ldquo;Currencies&rdquo; (both crypto and fiat) and their relative exchange prices in USD.</p>
 
-<p>The simple web server will update the currency exchanges you care about in the &ldquo;Currencies&rdquo; table, and these changes will update the linked &ldquo;Current Price&rdquo; field in the &ldquo;Assets&rdquo; table, updating the calculations of the USD value of your assets given the new exchange rates. In addition to this, it will also update your bank balances directly in the &ldquo;Assets&rdquo; table by updating the &ldquo;Amount&rdquo; field for specific records.</p>
+<p align="center">
+<img src="/imgs/finance_tracker_currencies_screenshot.png"/>
+Screenshot of the Currencies Table
+</p>
+
+<p>The simple web server will update the currency exchanges you care about in the &ldquo;Currencies&rdquo; table. Since every asset is denominated in a currency, these updates will propogate to the &ldquo;Assets&rdquo; table, updating the USD value of your assets given the new exchange rates. In addition to this, it will also update your bank balances directly in the &ldquo;Assets&rdquo; table so that any expenses you&rsquo;ve made since the last update will be reflected here.</p>
 
 <h3 id="getting-started:235c5519861362eeefa2a35b73b78e7a">Getting Started</h3>
 
-<p>In order to get started, you will need to <a href="https://airtable.com/">create an Airtable account</a> and <a href="https://airtable.com/shrA09QDhlYHBPMB3/tblEIN8XHiHPZWY3n/viwlisvgdR8wg4xwM">install the Finance Tracker base</a> onto one of your workspaces. You can do this by clicking the &ldquo;Copy Base&rdquo; button in the top right corner. This will install your very own copy of the &ldquo;Finance Tracker&rdquo; base which you can then customize to your liking.</p>
+<p>In order to get started, you will need to <a href="https://airtable.com/">create an Airtable account</a> and <a href="https://airtable.com/shrA09QDhlYHBPMB3/tblEIN8XHiHPZWY3n/viwlisvgdR8wg4xwM">install the Finance Tracker base</a> onto one of your workspaces. You can do this by clicking the &ldquo;Copy Base&rdquo; button in the bottom right corner of the embedded base in this post. This will install your very own copy of the &ldquo;Finance Tracker&rdquo; base which you can then customize to represent your own finances.</p>
 
-<p>The &ldquo;Finance Tracker&rdquo; base comes pre-filled with dummy &ldquo;Assets&rdquo;. Each record in this table should represent an asset you own. You can delete all the dummy entries by selecting all the records (cmd-a) and right click on one to see the &ldquo;Delete all selected records&rdquo; option. This will make room for your actual assets, be they crypto or fiat.</p>
+<p align="center">
+<img src="/imgs/copy_base_screenshot.png" alt="Drawing" style="width: 300px;"/>
+</p>
+
+<p>The &ldquo;Finance Tracker&rdquo; base comes pre-filled with dummy data in the &ldquo;Assets&rdquo; table. Each record in this table should represent an asset you own. You can delete all the dummy entries by selecting all the records (cmd-a) and right clicking to see the &ldquo;Delete all selected records&rdquo; option. This will make room for your actual assets, be they crypto or fiat.</p>
 
 <p align="center">
 <img src="/imgs/airtable_delete_all_screenshot.png" alt="Drawing" style="width: 300px;"/>
 </p>
 
-<p>The first thing you should do is populate this table with each of the assets you own, filling in the &ldquo;Funds&rdquo; field with a descriptive name for the asset, the &ldquo;Amount&rdquo; field with the amount of the asset you own and the &ldquo;Currency&rdquo; field with the currency the asset is denominated in. You should also fill in the &ldquo;Unit Buy Price&rdquo; you paid for the asset (simply $1 if it&rsquo;s a USD bank account).</p>
+<p>The first thing you should do is populate this table with each of the assets you own, filling in the &ldquo;Funds&rdquo; field with a descriptive name for the asset, the &ldquo;Amount&rdquo; field with the amount of the asset you own and the &ldquo;Currency&rdquo; field with the currency the asset is denominated in. You should also fill in the &ldquo;Unit Buy Price&rdquo; you paid for the asset (this is simply $1 if it&rsquo;s a USD denominated asset).</p>
 
 <p><strong>Pro tip:</strong> If you bought a crypto-currency at multiple times at different prices, you can create a record for each time you bought or mined the currency. This way, you can more accurately track your gains/losses for each subsequent acquisition.</p>
 
-<p>The rest of the fields in this table will be auto-calculated for you based on the other field values and the currency exchange rates in the &ldquo;Currencies&rdquo; table. This is because they are <a href="https://support.airtable.com/hc/en-us/articles/202576519-Guide-to-formula-lookup-count-and-rollup-fields">formula fields</a> that take as input the values in other fields. For example, the &ldquo;Gain/Loss&rdquo; field is simply the &ldquo;Current Value&rdquo; field minus the &ldquo;Total Buy Price&rdquo;.</p>
+<p>The rest of the fields in this table will be auto-calculated for you based on the other field values and the currency exchange rates in the &ldquo;Currencies&rdquo; table. This is because they are <a href="https://support.airtable.com/hc/en-us/articles/202576519-Guide-to-formula-lookup-count-and-rollup-fields">formula fields</a> that take as input the values of other fields. For example, the &ldquo;Gain/Loss&rdquo; field is simply the &ldquo;Current Value&rdquo; field minus the &ldquo;Total Buy Price&rdquo; field.</p>
 
 <p align="center">
 <img src="/imgs/airtable_formula_screenshot.png" alt="Drawing" style="width: 300px;"/>
+Formula editor
 </p>
 
-<p><strong>Pro tip:</strong> You can inspect and edit each formula by double clicking the field name and opening up the field configuration menu.</p>
+<p><strong>Pro tip:</strong> You can inspect and edit each formula by double clicking the field name, opening up the field configuration menu.</p>
 
-<p>Another Airtable feature we use is the summary bar at the bottom of the base. This allows us to see aggregate stats about a particular column. For example, to see your total net worth, you can look at the summation at the bottom of the &ldquo;Current Value&rdquo; field:</p>
+<p>Another Airtable feature used is the summary bar at the bottom of the base. This allows you to see aggregate stats about a particular column. For example, to see your total net worth, you can look at the summation at the bottom of the &ldquo;Current Value&rdquo; field:</p>
 
 <p align="center">
 <img src="/imgs/airtable_summary_bar_screenshot.png" alt="Drawing" style="width: 100px;"/>
 </p>
 
-<p>The same goes for the &ldquo;Crypto&rdquo; and &ldquo;Personal&rdquo; columns which tell you the total of your net worth that is in crypto assets and fiat assets.</p>
+<p>The same goes for the &ldquo;Crypto&rdquo; and &ldquo;Personal&rdquo; columns which tell you the amount of your net worth that is in crypto assets and fiat assets.</p>
 
 <h3 id="setting-up-the-server:235c5519861362eeefa2a35b73b78e7a">Setting up the server</h3>
 
-<p>Now that you&rsquo;ve listed all of your assets, it&rsquo;s time to clone and install the server that&rsquo;s going to update the currency exchange rates you care about and update your bank balances whenever you want. To do this, go ahead and clone the <a href="https://github.com/fabioberger/finance_tracker">finance_tracker project on Github</a> and follow the detailed README instructions on how to customize which currencies you&rsquo;d like updated (both crypto and fiat) as well as how to pull in your bank account balances into Airtable.</p>
+<p>Now that you&rsquo;ve listed all of your assets, it&rsquo;s time to install and configure the server that&rsquo;s going to update the currency exchange rates and update your bank balances whenever you want. To do this, go ahead and clone the <a href="https://github.com/fabioberger/finance_tracker">finance_tracker project on Github</a> and follow the detailed README instructions on how to customize which currencies you&rsquo;d like updated (both crypto and fiat) as well as how to pull in your bank account balances into Airtable.</p>
 
-<p>I&rsquo;ll be waiting here until you&rsquo;ve successfully gotten your little server running.</p>
+<p>After you have configured and successfully updated your Finance Tracker app, continue from over here.</p>
 
-<p>Ok great! You&rsquo;ve now successfully customized your Airtable Finance Tracker base and can keep it up to date with a server running locally on your computer! The cool thing about keeping track of your finances in this way is that Airtable is infintely flexible. If there is an additional statistic or key metric you want to keep track of, you can easily add a formula field and calculate it right away! If you suddenly buy a new crypto-asset or open a bank account abroad, you can just add them to the assets table and start tracking them as well.</p>
+<p>Ok great! You&rsquo;ve now successfully customized your Airtable Finance Tracker base and can keep it up to date with a server running locally on your computer! The cool thing about keeping track of your finances in this way is that Airtable is extremely flexible. If there is an additional statistic or key metric you want to keep track of, you can easily add a formula field and calculate it right away! If you suddenly buy a new crypto-asset or open a bank account abroad, you can just add them to the assets table and start tracking them as well.</p>
+
+<p>If you want to update your Finance Tracker on-the-go, you can deploy the <code>finance_tracker</code> app to a remote server. This way you don&rsquo;t need to run anything locally, you can simply visit a URL and immediately see your updated finances. Let me know if you&rsquo;d like me to write up a tutorial on how to do this.</p>
 
 <p>I hope you found this tutorial helpful and that it helps you stay on top of your finances!</p>
 
