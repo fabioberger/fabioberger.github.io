@@ -72,7 +72,7 @@ Formula editor
 
 &lt;p&gt;The same goes for the &amp;ldquo;Crypto&amp;rdquo; and &amp;ldquo;Personal&amp;rdquo; columns which tell you the amount of your net worth that is in crypto assets and fiat assets.&lt;/p&gt;
 
-&lt;h3 id=&#34;setting-up-the-server:235c5519861362eeefa2a35b73b78e7a&#34;&gt;Setting up the server&lt;/h3&gt;
+&lt;h3 id=&#34;setting-up-the-server:235c5519861362eeefa2a35b73b78e7a&#34;&gt;Setting up the server :)&lt;/h3&gt;
 
 &lt;p&gt;Now that you&amp;rsquo;ve listed all of your assets, it&amp;rsquo;s time to install and configure the server that&amp;rsquo;s going to update the currency exchange rates and update your bank balances whenever you want. To do this, go ahead and clone the &lt;a href=&#34;https://github.com/fabioberger/finance_tracker&#34;&gt;finance-tracker-server&lt;/a&gt; and follow the detailed README instructions on how to customize which currencies you&amp;rsquo;d like updated (both crypto and fiat) as well as how to pull in your bank account balances into Airtable.&lt;/p&gt;
 
