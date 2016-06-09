@@ -17,7 +17,7 @@
       <guid>http://fabioberger.com/post/2016-06-05-finance-tracker-using-airtable/</guid>
       <description>
 
-&lt;p&gt;Since I started owning crypto-currencies, I&amp;rsquo;ve had a harder and harder time keeping track of my finances. With my modest fortune spread between multiple bank accounts, ether and bitcoin addresses, I needed a better way to know my total net worth and what the relative values were of my assets. I decided to use &lt;a href=&#34;https://airtable.com&#34;&gt;Airtable&lt;/a&gt; and its extensive API to build a solution that could do just that.&lt;/p&gt;
+&lt;p&gt;Since I started owning crypto-currencies, I&amp;rsquo;ve had a harder and harder time keeping track of my finances. With my modest fortune spread between multiple bank accounts, ether and bitcoin addresses, I needed a better way to know my total net worth and the relative values of my assets. I decided to use &lt;a href=&#34;https://airtable.com&#34;&gt;Airtable&lt;/a&gt; and its extensive API to build a solution that could do just that.&lt;/p&gt;
 
 &lt;p&gt;In this post I will show you how you too can use Airtable and a simple web server (&lt;a href=&#34;https://github.com/fabioberger/finance_tracker&#34;&gt;finance-tracker-server&lt;/a&gt;) to keep track of your finances. It will update your bank balances, pull in the latest crypto and fiat currency exchange rates in order to give you up-to-the-minute profit &amp;amp; loss calculations, total net worth valuation, and where you lie on the crypto/fiat split. I will walk you through customizing the &lt;a href=&#34;https://airtable.com/shrA09QDhlYHBPMB3&#34;&gt;Finance Tracker&lt;/a&gt; Airtable Base I&amp;rsquo;ve published, and how to set up the server that will keep it up to date.&lt;/p&gt;
 
@@ -26,7 +26,7 @@
 Embedded version of the Finance Tracker Base (Click around!)
 &lt;/p&gt;
 
-&lt;p&gt;The Finance Tracker base is made up of two tables. The &amp;ldquo;Assets&amp;rdquo; table has a record for each assets you own, be they bank balances or crypto-currencies you keep in an offline wallet/exchange. It reports how each asset is performing in US Dollar terms (although with the flexibility of Airtable, this could to be any currency you want).&lt;/p&gt;
+&lt;p&gt;The Finance Tracker base is made up of two tables. The &amp;ldquo;Assets&amp;rdquo; table has a record for each assets you own, be they bank balances or crypto-currencies you keep in an offline wallet/exchange. It reports how each asset is performing in US Dollar terms (this could be modified to be any currency you want).&lt;/p&gt;
 
 &lt;p&gt;The second table keeps track of the &amp;ldquo;Currencies&amp;rdquo; (both crypto and fiat) and their relative exchange prices in USD.&lt;/p&gt;
 
@@ -35,7 +35,7 @@ Embedded version of the Finance Tracker Base (Click around!)
 Screenshot of the Currencies Table
 &lt;/p&gt;
 
-&lt;p&gt;The &lt;a href=&#34;https://github.com/fabioberger/finance_tracker&#34;&gt;finance-tracker-server&lt;/a&gt; will update the currency exchanges you care about in the &amp;ldquo;Currencies&amp;rdquo; table. Since every asset is denominated in a currency, these updates will propogate to the &amp;ldquo;Assets&amp;rdquo; table, updating the USD value of your assets given the new exchange rates. In addition to this, it will also update your bank balances directly in the &amp;ldquo;Assets&amp;rdquo; table so that any expenses you&amp;rsquo;ve had since the last update will be reflected here.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/fabioberger/finance_tracker&#34;&gt;finance-tracker-server&lt;/a&gt; will update the currency exchanges you care about in the &amp;ldquo;Currencies&amp;rdquo; table. Since every asset is denominated in a currency, these updates will propagate to the &amp;ldquo;Assets&amp;rdquo; table, updating the USD value of your assets given the new exchange rates. In addition to this, it will also update your bank balances directly in the &amp;ldquo;Assets&amp;rdquo; table so that any expenses you&amp;rsquo;ve had since the last update will be reflected here.&lt;/p&gt;
 
 &lt;h3 id=&#34;getting-started:235c5519861362eeefa2a35b73b78e7a&#34;&gt;Getting Started&lt;/h3&gt;
 
@@ -45,7 +45,7 @@ Screenshot of the Currencies Table
 &lt;img src=&#34;http://fabioberger.com/imgs/copy_base_screenshot.png&#34; alt=&#34;Drawing&#34; style=&#34;width: 300px;&#34;/&gt;
 &lt;/p&gt;
 
-&lt;p&gt;The &amp;ldquo;Finance Tracker&amp;rdquo; base comes pre-filled with dummy data in the &amp;ldquo;Assets&amp;rdquo; table. Each record in this table should represent an asset you own. You can delete all the dummy entries by selecting all the records (cmd-a) and right clicking to see the &amp;ldquo;Delete all selected records&amp;rdquo; option. This will make room for your actual assets, be they crypto or fiat.&lt;/p&gt;
+&lt;p&gt;The Finance Tracker base comes pre-filled with dummy data in the &amp;ldquo;Assets&amp;rdquo; table. Each record in this table should represent an asset you own. You can delete all the dummy entries by selecting all the records (cmd/ctrl + a) and right clicking to see the &amp;ldquo;Delete all selected records&amp;rdquo; option. This will make room for your actual assets, be they crypto or fiat.&lt;/p&gt;
 
 &lt;p align=&#34;center&#34;&gt;
 &lt;img src=&#34;http://fabioberger.com/imgs/airtable_delete_all_screenshot.png&#34; alt=&#34;Drawing&#34; style=&#34;width: 300px;&#34;/&gt;
