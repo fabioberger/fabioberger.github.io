@@ -26,7 +26,7 @@
 Embedded version of the Finance Tracker Base (Click around!)
 &lt;/p&gt;
 
-&lt;p&gt;The Finance Tracker base is made up of two tables. The &amp;ldquo;Assets&amp;rdquo; table has a record for each assets you own, be they bank balances or crypto-currencies you keep in an offline wallet/exchange. It reports how each asset is performing in US Dollar terms (this could be modified to be any currency you want).&lt;/p&gt;
+&lt;p&gt;The Finance Tracker base is made up of two tables. The &amp;ldquo;Assets&amp;rdquo; table has a record for each assets you own, be they bank balances or crypto-currencies you keep in an offline wallet/exchange. It reports how each asset is performing in US Dollar terms.&lt;/p&gt;
 
 &lt;p&gt;The second table keeps track of the &amp;ldquo;Currencies&amp;rdquo; (both crypto and fiat) and their relative exchange prices in USD.&lt;/p&gt;
 
